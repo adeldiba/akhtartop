@@ -1,0 +1,43 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2>لگوی وبسایت</h2>
+        <div class="btn-group">
+            <a href="/admin/logo/create" class="btn btn-sm btn-primary">ایجاد مشخصات وبسایت</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th> تصویر لگو</th>
+                <th> ایمیل وبسایت</th>
+                <th>شماره تلفن فروشگاه</th>
+                <th>آدرس</th>
+                <th>تنظیمات</th>
+               
+            </tr>
+            </thead>
+            <tbody>
+                <% logo.docs.forEach(logo =>{ %>
+                    <tr>
+                        <td><img src="/uploads/<%= logo.file %>" style="width: 100px;height: 100px;"></td>
+                        <td><%= logo.email %></td>
+                        <td><%= logo.phone %></td>
+                        <td><%= logo.address %></td>
+                        <td>
+                            <form action="/admin/logo/<%= logo._id %>?_method=DELETE" method="post">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="_token" value="Dso45XzqoXsAkRC8BBMQ63ZsOFS0c2tELkxR4i3Y">
+                                <div class="btn-group-sm">
+                                    <a href="/admin/logo/<%= logo._id %>/edit"  class="btn btn-primary">ویرایش</a>
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        
+    </div>
+    
+    

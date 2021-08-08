@@ -1,0 +1,299 @@
+<section class="single-page mt-3 mb-4">
+    <div class="container single-box">
+        <div class="row">
+            <div class="col-6 col-md-6 col-lg-6">
+                <div class="single-title mt-2 mb-3">
+                    <h1><%= engine.title %></h1>
+                </div>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6">
+                <div class="single-title2 mt-2 mb-3">
+                    <h2><p><%= engine.titleE %></p></h2>
+                </div>
+            </div>
+            <div class="sin-bor"></div>
+        </div><!--row-->
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="single-item">
+                    <div class="star-widget mb-2">
+                        <input type="radio" name="rate" id="rate-5">
+                        <label for="rate-5" >
+                            <i class="fas fa-star"></i>
+                        </label>
+                        <input type="radio" name="rate" id="rate-4">
+                        <label for="rate-4" >
+                            <i class="fas fa-star"></i>
+                        </label>
+                        <input type="radio" name="rate" id="rate-3">
+                        <label for="rate-3" >
+                            <i class="fas fa-star"></i>
+                        </label>
+                        <input type="radio" name="rate" id="rate-2">
+                        <label for="rate-2" >
+                            <i class="fas fa-star"></i>
+                        </label>
+                        <input type="radio" name="rate" id="rate-1">
+                        <label for="rate-1" >
+                            <i class="fas fa-star"></i>
+                        </label>
+                        <form accept="#">
+                            <header></header>
+                        </form>
+                    </div>
+                    <div class="color-s">
+                        <span class="color-text">انتخاب رنگ :</span>
+                        <span class="s-sircle color-yellow"></span>
+                        <span class="s-sircle color-black"></span>
+                        <span class="s-sircle color-red"></span> 
+                    </div>
+                    <div class="qty mt-3">
+                        <span class="qty-text">انتخاب تعداد :</span>
+                        <input type="text" value="" placeholder="تعداد مورد نظر را وارد کنید">
+                            <span class="qty-plus"><i class="fas fa-plus"></i></span>
+                            <span class="qty-minus"><i class="fas fa-minus"></i></span>
+                    </div>
+                    <% engine.episodes.forEach(episode => { %> 
+                        <p><span class="caro-2"><%= episode.notPrice %></span></p>
+                    <% }) %>
+                        <p><span class="price-rea"><%= engine.price %> تومان </span></p>
+                        <p class="caro-1">محصول کشور: <span class="carousel-brand"><%= engine.model %></span></p>
+
+                        <% if(engine.typetwo == 'available') { %>
+                        <div class="add-shopp mt-5 mb-2">
+                            <a href="/cart/add<%= engine.path() %>"><i class="fas fa-plus"></i> افزودن به سبد خرید</a>
+                        </div>
+                        <% }else{ %>
+                            <div class="available mt-5 mb-2">
+                                <p>محصول <span><%= engine.typetwoToPersian() %></span></p>
+                            </div>
+                        <% } %>
+
+
+
+                        <div class="bon mt-5 mb-4">
+                            <span>اگر بن تخفیف دارید در کادر روبه رو وارد کنید</span>
+                            <input type="text" >
+                        </div>
+                </div><!--single-item-->
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="single-img">
+                    <div class="top-section">
+                        <img src="/uploads/<%= engine.file %>" id="image-container" class="img-fluid" alt="">
+                       
+                            <% engine.episodes.forEach(episode => { %> 
+                                <div class="discount-price2">
+                                    <span class="discount-n"><%= episode.discount %></span>
+                                    <span class="discount-t">تخفیف</span>
+                                </div>
+                           <% }) %>
+                        
+                       
+                        <form id="like" action="/like/<%= engine._id %>" method="POST">
+                            <div class="ui labeled button" tabindex="0">
+                            <button class="discount-heart" type="submit">
+                                <i class="far fa-heart"></i>
+                                <%= engine.likes %>
+                               
+                            </button>
+                        </div>
+                        </form>
+
+                        <div class="nav">
+                            <img onclick="change_img(this)" src="/img/area-1.png" class="img-fluid" alt="">
+                            <img onclick="change_img(this)" src="/img/area-3.png" class="img-fluid" alt="">
+                            <img onclick="change_img(this)" src="/img/area-6.png" class="img-fluid" alt="">
+                            <img onclick="change_img(this)" src="/img/area-10.png" class="img-fluid" alt="">
+                            <img onclick="change_img(this)" src="/img/area-8.png" class="img-fluid" alt="">
+                        </div>
+                    </div><!--top-section-->
+                </div>
+            </div>
+        </div><!--row-->
+    </div>
+</section>
+<section class="timeline-box">
+    <div class="container timeline-shadow">
+        <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-img"></div>
+  
+        <div class="timeline-content">
+            <div class="row">
+                <div class="col-2 col-md-2 col-lg-2 text-center">
+                    <img src="/img/optimization.png" class="img-fluid" alt="">
+                    <span>کاربرد</span>
+                </div>
+        <div class="col-10 col-md-10 col-lg-10">
+          <p><%- engine.body %></p>
+        </div>
+    </div><!--row-->
+      </div> 
+      </div>
+      <div class="timeline-item">
+  
+        <div class="timeline-img"></div>
+  
+        <div class="timeline-content">
+            <div class="row">
+                <div class="col-2 col-md-2 col-lg-2 text-center">
+                    <img src="/img/truck.png" class="img-fluid" alt="">
+                    <span>نوع ماشین</span>
+                </div>
+                <div class="col-10 col-md-10 col-lg-10">
+                    <p><%- engine.body2 %></p>
+                </div>
+    </div><!--row-->
+      </div> 
+  
+      </div>       
+      <div class="timeline-item">
+  
+        <div class="timeline-img"></div>
+  
+        <div class="timeline-content">
+            <div class="row">
+                <div class="col-2 col-md-2 col-lg-2 text-center">
+          <img src="/img/fabric.png" class="img-fluid" alt="">
+          <span>مواد به کار رفته</span>
+        </div>
+        <div class="col-10 col-md-10 col-lg-10">
+            <p><%- engine.body3 %></p>
+        </div>
+    </div><!--row-->
+      </div> 
+  
+      </div>       
+      <div class="timeline-item">
+  
+        <div class="timeline-img"></div>
+  
+        <div class="timeline-content">
+            <div class="row">
+                <div class="col-2 col-md-2 col-lg-2 text-center">
+          <img src="/img/search22.png" class="img-fluid" alt="">
+          <span>عملکرد</span>
+        </div>
+        <div class="col-10 col-md-10 col-lg-10">
+            <p><%- engine.body4 %></p>
+        </div>
+    </div><!--row-->
+      </div> 
+  
+      </div> 
+    </div>      
+    </div>
+  </section>
+  <section class="section_area mt-4 mb-4">
+    <div class="container">
+        <div class="box-area">
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 text-right">
+                    <h3><i class="fas fa-caret-square-left"></i> محصولات مشابه</h3>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6">
+                    <p><a href="#">مشاهده بیشتر</a></p>
+                </div>
+            </div><!--row-->
+            <div class="border-area"></div>
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3">
+                <div class="item-area mt-3">
+                    <a href="#"><img src="/img/area-5.png" class="img-fluid" alt=""></a>
+                    <div class="discount-price">
+                      <span class="discount-n">20%</span>
+                      <span class="discount-t">تخفیف</span>
+                    </div>
+                    <h3>چراغ خطر عقب</h3>
+                    <p><span class="under-price">120 هزار تومان</span><span class="green-price">84 هزار تومان</span></p>
+                    <a href="#" class="shop-area"></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3">
+                <div class="item-area mt-3">
+                    <a href="#"><img src="/img/area-2.png" class="img-fluid" alt=""></a>
+                    <h3>بوش پایه اتاق استرالیس</h3>
+                    <p class="price-s">165 هزار تومان</p>
+                    <a href="#" class="shop-area"></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3">
+                <div class="item-area mt-3">
+                    <a href="#"><img src="/img/area-3.png" class="img-fluid" alt=""></a>
+                    <h3>چراغ راهنمای دنباله دار استرالیس(سمت راننده)</h3>
+                    <p class="price-s">165 هزار تومان</p>
+                    <a href="#" class="shop-area"></a>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3">
+                <div class="item-area mt-3">
+                    <a href="#"><img src="/img/area-4.png" class="img-fluid" alt=""></a>
+                    <h3>بوش دوقلوی پایه اتاق استرالیس</h3>
+                    <p class="price-s">165 هزار تومان</p>
+                    <a href="#" class="shop-area"></a>
+                </div>
+            </div>
+        </div><!--row-->
+    </div><!--box-area-->
+    </div>
+</section>
+<section class="user-comments">
+    <div class="container">
+        <div class="user-area pb-5">
+        <div class="row">
+            <div class="col-6 col-md-6 col-lg-6 text-right">
+                <h3><i class="fas fa-caret-square-left"></i> نظرات کاربران</h3>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6">
+                <p><%= commentCount %> <span>دیدگاه</span></p>
+            </div>
+        </div><!--row--> 
+        <div class="border-area mb-4"></div>
+        <%- include(viewPath('layouts/comments') , { subject : engine , comments : engine.comments}) -%>
+        
+    </div><!--user-area-->
+    </div>
+</section>
+
+<script>
+    var container = document.getElementById("image-container");
+    function change_img(image){
+        container.src = image.src;
+    }
+</script>
+<script>
+    var updatePostStats = {
+        Like: function (postId) {
+            document.querySelector('#likes-count-' + postId).textContent++;
+        },
+        Unlike: function(postId) {
+            document.querySelector('#likes-count-' + postId).textContent--;
+        }
+    };
+
+    var toggleButtonText = {
+        Like: function(button) {
+            button.textContent = "Unlike";
+        },
+        Unlike: function(button) {
+            button.textContent = "Like";
+        }
+    };
+
+    var actOnPost = function (event) {
+        var postId = event.target.dataset.postId;
+        var action = event.target.textContent.trim();
+        toggleButtonText[action](event.target);
+        updatePostStats[action](postId);
+        axios.post('/posts/' + postId + '/act', { action: action });
+    };
+</script>
+<script>
+    $(document).ready(function(){
+        $('.discount-heart').click(function(){
+            $(this).toggleClass('heart');
+        })
+    })
+</script>
+

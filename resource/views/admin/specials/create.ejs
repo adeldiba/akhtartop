@@ -1,0 +1,120 @@
+<div class="row">
+    <div class="col-sm-12 col-md-10">
+        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h2>ایجاد محتوای فروش ویژه</h2>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-2">
+        <div class="text-left">
+            <a href="/admin/specials" type="submit" class="btn btn-info">بازگشت</a>
+        </div>
+    </div>
+</div><!--row-->
+<form class="form-horizontal" action="/admin/specials/create?_csrf=<%= req.csrfToken()%>" method="post" enctype="multipart/form-data">
+
+    <%- include(viewPath('layouts/error-messages')) -%>
+    <input type="hidden" name="_csrf" value="<%= req.csrfToken() %>">
+    <div class="form-group row">
+        <div class="col">
+            <label for="title" class="control-label font-weight-bold">عنوان محصول</label>
+            <input type="text" class="form-control" name="title" id="title" placeholder="عنوان را وارد کنید" value="<%= old('title') %>">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="model" class="control-label font-weight-bold">مدل محصول</label>
+            <input type="text" class="form-control" name="model" value="<%= old('model') %>" id="model" placeholder="مدل محصول را وارد کنید">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="brand" class="control-label font-weight-bold">برند محصول</label>
+            <select name="brands" id="brands" class="form-control">
+                <% brands.forEach(brand => { %> 
+                <option value="<%= brand.id %>"><%= brand.title %></option>
+                <% }) %>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="type" class="control-label font-weight-bold font-weight-bold">نوع دوره</label>
+            <select name="type" id="type" class="form-control">
+                <option value="bestseller" <%= old('type') === 'bestseller' ? 'selected' : '' %> >پرفروش ترین</option>
+                <option value="discountPercent" <%= old('type') === 'discountPercent' ? 'selected' : '' %> >بیشترین درصد تخفیف</option>
+                <option value="newest" <%= old('type') === 'newest' ? 'selected' : '' %> >جدید ترین</option>
+                <option value="expensive" <%= old('type') === 'expensive' ? 'selected' : '' %>>گران ترین</option>
+                <option value="cheapest" <%= old('type') === 'cheapest' ? 'selected' : '' %>>ارزان ترین</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="specialCategories" class="control-label font-weight-bold font-weight-bold">دسته</label>
+            <select name="specialCategories" id="specialCategories" class="form-control form-control-chosen" data-placeholder="دسته بندی مورد نظر" multiple>
+                <% specialCategories.forEach(cate => { %> 
+                <option value="<%= cate.id %>"><%= cate.name %></option>
+                <% }) %>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+            <div class="col">
+                <label for="lang" class="control-label font-weight-bold font-weight-bold">زبان نمایشی</label>
+                <select name="lang" id="lang" class="form-control">
+                    <option value="fa" <%= old('lang') == 'fa' ? 'selected' : '' %> >زبان فارسی</option>
+                    <option value="en" <%= old('lang') == 'tr' ? 'selected' : '' %>>زبان ترکی</option>
+                </select>
+            </div>
+            
+            <div class="col">
+            <label for="tags" class="control-label font-weight-bold">موجودیت محصول</label>
+            <input type="text" class="form-control" name="tags" id="tags" placeholder="تگ ها را وارد کنید" value="<%= old('tags') %>">
+        </div>
+    </div>
+    <div class="form-group row">
+      <div class="col">
+          <label for="body" class="control-label font-weight-bold">متن</label>
+          <textarea rows="10" class="form-control" name="body" id="body" placeholder="متن مقاله را وارد کنید"><%= old('body') %></textarea>
+      </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="images" class="control-label font-weight-bold">تصویر محصول</label>
+            <input type="file" class="form-control" name="images" id="images" placeholder="تصویر مقاله را وارد کنید" >
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="price" class="control-label font-weight-bold">قیمت قبلی محصول</label>
+            <input type="number" class="form-control" name="price" id="price" placeholder="قیمت ها را وارد کنید" value="<%= old('price') %>">
+        </div>
+        <div class="col">
+            <label for="priceNew" class="control-label font-weight-bold">قیمت جدید محصول</label>
+            <input type="number" class="form-control" name="priceNew" id="priceNew" placeholder="قیمت تخفیف را وارد کنید" value="<%= old('priceNew') %>">
+        </div>
+        <div class="col">
+            <label for="percent" class="control-label font-weight-bold">درصد تخفیف</label>
+            <input type="text" class="form-control" name="percent" id="percent" placeholder="درصد تخفیف را وارد کنید" value="<%= old('price') %>">
+        </div>
+        
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <button type="submit" class="btn btn-danger">ارسال</button>
+        </div>
+        
+    </div>
+</form>
+
+
+<link rel="stylesheet" href="/css/component-chosen.min.css">
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.6/chosen.jquery.min.js"></script>
+<script>
+     CKEDITOR.replace('body' , {
+         filebrowserUploadUrl : '/admin/upload-image'
+     })
+
+    $('.form-control-chosen').chosen({});
+</script>

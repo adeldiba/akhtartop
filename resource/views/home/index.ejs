@@ -1,0 +1,553 @@
+
+    <section class="main-c mt-3">
+        <div class="container">
+            <div class="row">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="<%= sliders[0] %>" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="<%= sliders[1] %>"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="<%= sliders[2] %>"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <% for (i = sliders.length - 3; i >= 0; i--) { %>
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="/uploads/<%= sliders[0].file %>" alt="<%- sliders[0].body %>">
+                        <div class="carousel-caption d-md-block">
+                            <h5><%- sliders[0].body %></h5>
+                            <a href="#"><i class="fas fa-play"></i> خرید </a>
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="/uploads/<%= sliders[1].file %>" alt="<%- sliders[1].body %>">
+                        <div class="carousel-caption d-md-block">
+                            <h5><%- sliders[1].body %></h5>
+                            <a href="#"><i class="fas fa-play"></i> خرید</a>
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="/uploads/<%= sliders[2].file %>" alt="<%- sliders[2].body %>">
+                        <div class="carousel-caption d-md-block">
+                            <h5><%- sliders[2].body %></h5>
+                            <a href="#"><i class="fas fa-play"></i> خرید</a>
+                          </div>
+                      </div>
+                    <% } %>
+                    </div>
+                    
+                  </div>
+            </div><!--row-->
+        </div>
+    </section>
+    <section class="parts">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 justify-content-center">
+                    
+                    <div class="parts-box">
+                        <img src="img/parts-11.png" class="img-fluid z-depth-1">
+                        <div class="parts-text1 parts-st">
+                            <h2>لوازم یدکی ماشین آلات نیمه سنگین (کارگو)</h2>
+                            <% for (i = devices.length - 2; i >= 0; i--) { %>
+                            <a href="/engines?device=<%= devices[0].slug %>" class="style-btn-1 color-1"><i class="fas fa-play"></i> خرید</a>
+                            <% }; %>
+                        </div>
+                    </div>
+              
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 justify-content-center">
+                    <div class="parts-box">
+                        <img src="img/parts-22.png" class="img-fluid z-depth-1">
+                        <div class="parts-text2 parts-st">
+                            <h2>لوازم یدکی ماشین آلات سنگین (کشنده)</h2>
+                            <% for (i = devices.length - 2; i >= 0; i--) { %>
+                                <a href="/engines?device=<%= devices[1].slug %>" class="style-btn-1 color-1"><i class="fas fa-play"></i> خرید</a>
+                            <% }; %>
+                        </div>
+                    </div>
+                </div>
+            </div><!--row-->
+        </div>
+    </section>
+    <section class="types">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 justify-content-center">
+                    <div class="types-box">
+                        <img src="img/types-1.png" class="img-fluid z-depth-1" alt="">
+                        <div class="types-text">
+                            <h3 class="style-1">انواع سنسور</h3>
+                            <a href="#" class="style-btn-1 color-2"><i class="fas fa-play"></i> خرید</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 justify-content-center">
+                    <div class="types-box">
+                        <img src="img/types-2.png" class="img-fluid z-depth-1" alt="">
+                        <div class="types-text">
+                            <h3 class="style-2">انواع فیلتر</h3>
+                            <a href="#" class="style-btn-1 color-2"><i class="fas fa-play"></i> خرید</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 justify-content-center">
+                    <div class="types-box">
+                        <img src="img/types-3.png" class="img-fluid z-depth-1" alt="">
+                        <div class="types-text">
+                            <h3 class="style-3">انواع بوش</h3>
+                            <a href="#" class="style-btn-1 color-1"><i class="fas fa-play"></i> خرید</a>
+                        </div>
+                    </div>
+                </div>
+            </div><!--row-->
+        </div>
+    </section>
+    <section class="media">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="media-movie mb-4 text-right"> 
+                        <h4><i class="fas fa-caret-square-left"></i> رسانه</h4>
+                            <video id="my-video"
+                            class="video-js"
+                            controls
+                            data-setup="{}" poster="/img/media-movie.png">
+                                <source src="" type="video/mp4">       
+                            </video>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 col-lg-8 text-right">
+                    <div class="media-title">
+                        <div id="main_area">
+                            <div class="row">
+                                
+                                <div class="col-5 col-md-5 col-lg-5">
+                                         
+                                    <div class="media-right">
+                                    <h3><i class="fas fa-caret-square-left"></i> فروش ویژه</h3>
+                                    
+                                    <nav class="nav text-right">
+                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                           
+                                          <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true"><%= engines[0].title %></a>
+                                          <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false"><%= engines[1].title %></a>
+                                          <a class="nav-item nav-link" id="nav-engine3-tab" data-toggle="tab" href="#nav-engine3" role="tab" aria-controls="nav-engine3" aria-selected="false"><%= engines[2].title %></a>
+                                          <a class="nav-item nav-link" id="nav-engine4-tab" data-toggle="tab" href="#nav-engine4" role="tab" aria-controls="nav-engine4" aria-selected="false"><%= engines[3].title %></a>
+                                          <a class="nav-item nav-link" id="nav-engine5-tab" data-toggle="tab" href="#nav-engine5" role="tab" aria-controls="nav-engine5" aria-selected="false"><%= engines[4].title %></a>
+                                          <a class="nav-item nav-link" id="nav-engine6-tab" data-toggle="tab" href="#nav-engine6" role="tab" aria-controls="nav-engine6" aria-selected="false"><%= engines[5].title %></a>
+                                          
+                                        </div>
+                                        
+                                      </nav> 
+                                </div>
+                               
+                                </div>
+                                   
+                                <div class="col-6 col-md-7 col-lg-7 text-right"> 
+                                    <div class="tab-box">
+                                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                        
+                                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                            <div class="tab-box">
+                                                <img src="/uploads/<%= engines[0].file %>"class="img-fluid" alt="<%= engines[0].title %>">
+                                                <div class="carousel-caption">
+                                                    <h3><a href="<%= engines[0].path() %>"> <%= engines[0].title %> </a></h3>
+                                                    <p class="caro-1">محصول کشور: <span class="carousel-brand"><%= engines[0].model %></span></p>
+                                                        
+                                                            <div class="price-tab text-right mt-4">
+                                                                <span class="caro-2"><%= episode.notPrice %> تومان </span><span class="caro-3"><%= episode.discount %>  تخفیف </span>
+                                                                <span class="caro-4"><%= engines[0].price %> تومان</span>
+                                                            </div>  
+                                                    <ul>
+                                                        <li>
+                                                            <a href="/cart/addItem<%= engines[0].path() %>" class="shop-area">
+                                                                <img src="/img/bag.png" class="img-fluid" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li class="b">
+                                                          مدت زمان باقی مانده برای تخفیف:
+                                                        </li>
+                                                        <li>
+                                                          <span class="a">1</span><span class="a">4</span>:<span class="a">1</span><span class="a">4</span>:
+                                                          <span class="a">1</span><span class="a">4</span>
+                                                        </li> 
+                                                      </ul>
+                                                </div> 
+                                            </div><!--tab-box-->
+                                        </div>
+                                         
+                                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                            <div class="tab-box">
+                                                <img src="/uploads/<%= engines[1].file %>" class="img-fluid" alt="<%= engines[1].title %>">
+                                                <div class="carousel-caption">
+                                                    <h3><a href="<%= engines[1].path() %>"><%= engines[1].title %> </a></h3>
+                                                    <p class="caro-1">محصول کشور: <span class="carousel-brand"><%= engines[1].model %></span></p>
+                                                    <% engines[1].episodes.forEach(episode => { %>
+                                                        <div class="price-tab text-right">
+                                                            <span class="caro-2"><%= episode.notPrice %> تومان </span><span class="caro-3"><%= episode.discount %>  تخفیف </span>
+                                                            <span class="caro-4"><%= engines[1].price %> تومان</span>
+                                                        </div>
+                                                    <% }) %>
+                                                    <ul class="nav">
+                                                        <li class="nav-item">
+                                                            <a href="/cart/addItem<%= engines[1].path() %>" class="shop-area">
+                                                                <img src="/img/bag.png" class="img-fluid" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item b">
+                                                          مدت زمان باقی مانده برای تخفیف:
+                                                        </li>
+                                                        <li class="nav-item">
+                                                          <span class="a">1</span><span class="a">4</span>:<span class="a">1</span><span class="a">4</span>:
+                                                          <span class="a">1</span><span class="a">4</span>
+                                                        </li>
+                                                        
+                                                      </ul>
+                                                </div> 
+                                            </div><!--tab-box-->
+                                        </div>
+                                        
+                                        <div class="tab-pane fade" id="nav-engine3" role="tabpanel" aria-labelledby="nav-engine3-tab">
+                                            <div class="tab-box">
+                                                <img src="/uploads/<%= engines[2].file %>" class="img-fluid" alt="<%= engines[2].title %>">
+                                                <div class="carousel-caption">
+                                                    <h3><a href="<%= engines[2].path() %>"><%= engines[2].title %> </a></h3>
+                                                    <p class="caro-1">محصول کشور: <span class="carousel-brand"><%= engines[2].model %></span></p>
+                                                    <% engines[2].episodes.forEach(episode => { %>
+                                                        <div class="price-tab text-right">
+                                                            <span class="caro-2"><%= episode.notPrice %> تومان </span><span class="caro-3"><%= episode.discount %>  تخفیف </span>
+                                                            <span class="caro-4"><%= engines[2].price %> تومان</span>
+                                                        </div>
+                                                    <% }) %>
+                                                    <ul class="nav">
+                                                        <li class="nav-item">
+                                                            <a href="/cart/addItem<%= engines[2].path() %>" class="shop-area">
+                                                                <img src="/img/bag.png" class="img-fluid" alt="">
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item b">
+                                                          مدت زمان باقی مانده برای تخفیف:
+                                                        </li>
+                                                        <li class="nav-item">
+                                                          <span class="a">1</span><span class="a">4</span>:<span class="a">1</span><span class="a">4</span>:
+                                                          <span class="a">1</span><span class="a">4</span>
+                                                        </li>
+                                                        
+                                                      </ul>
+                                                </div> 
+                                            </div><!--tab-box-->
+                                        </div>
+                                         
+                                        <div class="tab-pane fade" id="nav-engine4" role="tabpanel" aria-labelledby="nav-engine4-tab">
+                                            <div class="tab-box">
+                                                <img src="/uploads/<%= engines[3].file %>" class="img-fluid" alt="<%= engines[3].title %>">
+                                                <div class="carousel-caption">
+                                                    <h3><a href="<%= engines[3].path() %>"><%= engines[3].title %> </a></h3>
+                                                    <p class="caro-1">محصول کشور: <span class="carousel-brand"><%= engines[3].model %></span></p>
+                                                    <% engines[3].episodes.forEach(episode => { %>
+                                                        <div class="price-tab text-right">
+                                                            <span class="caro-2"><%= episode.notPrice %> تومان </span><span class="caro-3"><%= episode.discount %>  تخفیف </span>
+                                                            <span class="caro-4"><%= engines[3].price %> تومان</span>
+                                                        </div>
+                                                    <% }) %>
+                                                    <ul class="nav">
+                                                        <li class="nav-item">
+                                                          <a class="nav-link active" href="#!"></a>
+                                                        </li>
+                                                        <li class="nav-item b">
+                                                          مدت زمان باقی مانده برای تخفیف:
+                                                        </li>
+                                                        <li class="nav-item">
+                                                          <span class="a">1</span><span class="a">4</span>:<span class="a">1</span><span class="a">4</span>:
+                                                          <span class="a">1</span><span class="a">4</span>
+                                                        </li>
+                                                        
+                                                      </ul>
+                                                </div> 
+                                            </div><!--tab-box-->
+                                        </div>
+                          
+                                       
+                                        <div class="tab-pane fade" id="nav-engine5" role="tabpanel" aria-labelledby="nav-engine5-tab">
+                                            <div class="tab-box">
+                                                <img src="/uploads/<%= engines[4].file %>" class="img-fluid" alt="<%= engines[4].title %>">
+                                                <div class="carousel-caption">
+                                                    <h3><a href="<%= engines[4].path() %>"><%= engines[4].title %> </a></h3>
+                                                    <p class="caro-1">محصول کشور: <span class="carousel-brand"><%= engines[4].model %></span></p>
+                                                    <% engines[4].episodes.forEach(episode => { %>
+                                                        <div class="price-tab text-right">
+                                                            <span class="caro-2"><%= episode.notPrice %> تومان </span><span class="caro-3"><%= episode.discount %>  تخفیف </span>
+                                                            <span class="caro-4"><%= engines[4].price %> تومان</span>
+                                                        </div>
+                                                    <% }) %>
+                                                    <ul class="nav">
+                                                        <li class="nav-item">
+                                                          <a class="nav-link active" href="#!"></a>
+                                                        </li>
+                                                        <li class="nav-item b">
+                                                          مدت زمان باقی مانده برای تخفیف:
+                                                        </li>
+                                                        <li class="nav-item">
+                                                          <span class="a">1</span><span class="a">4</span>:<span class="a">1</span><span class="a">4</span>:
+                                                          <span class="a">1</span><span class="a">4</span>
+                                                        </li>
+                                                        
+                                                      </ul>
+                                                </div> 
+                                            </div><!--tab-box-->
+                                        </div>   
+                                        <div class="tab-pane fade" id="nav-engine6" role="tabpanel" aria-labelledby="nav-engine6-tab">
+                                            <div class="tab-box">
+                                                <img src="/uploads/<%= engines[5].file %>" class="img-fluid" alt="<%= engines[5].title %>">
+                                                <div class="carousel-caption">
+                                                    <h3><a href="<%= engines[5].path() %>"><%= engines[5].title %> </a></h3>
+                                                    <p class="caro-1">محصول کشور: <span class="carousel-brand"><%= engines[5].model %></span></p>
+                                                    <% engines[5].episodes.forEach(episode => { %>
+                                                        <div class="price-tab text-right">
+                                                            <span class="caro-2"><%= episode.notPrice %> تومان </span><span class="caro-3"><%= episode.discount %>  تخفیف </span>
+                                                            <span class="caro-4"><%= engines[5].price %> تومان</span>
+                                                        </div>
+                                                    <% }) %>
+                                                    <ul class="nav">
+                                                        <li class="nav-item">
+                                                          <a class="nav-link active" href="#!"></a>
+                                                        </li>
+                                                        <li class="nav-item b">
+                                                          مدت زمان باقی مانده برای تخفیف:
+                                                        </li>
+                                                        <li class="nav-item">
+                                                          <span class="a">1</span><span class="a">4</span>:<span class="a">1</span><span class="a">4</span>:
+                                                          <span class="a">1</span><span class="a">4</span>
+                                                        </li>
+                                                        
+                                                      </ul>
+                                                </div> 
+                                            </div><!--tab-box-->
+                                        </div>
+                                       
+                                      </div>
+                                    
+                                    </div><!--tab-box-->  
+                                    </div>
+                                
+                                
+                            </div><!--row-->
+                           
+                        </div><!--main-area-->
+                    </div>
+                </div>
+            </div><!--row-->
+        </div>
+    </section>
+    
+    <section class="section_area mt-4 mb-4">
+        <div class="container">
+            <div class="box-area">
+                <div class="row">
+                    <div class="col-6 col-md-6 col-lg-6 text-right">
+                        <h3><i class="fas fa-caret-square-left"></i> پرفروش ها</h3>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-6">
+                        <p><a href="/engines">مشاهده بیشتر</a></p>
+                    </div>
+                </div><!--row-->
+                <div class="border-area"></div>
+            <div class="row">
+                <% for (i = engines.length - 6; i >= 0; i--) { %>
+                    <% if(i === 8){ %>
+                       <% break; %>
+                       <% } %>    
+            <div class="col-12 col-md-3 col-lg-3"> 
+                <div class="item-area mt-2">
+                    <a href="<%= engines[i].path() %>"><img src="/uploads/<%= engines[i].file %>" class="img-fluid" alt="<%= engines[i].title %>"></a>
+                        <% engines[i].episodes.forEach(episode => { %>
+                            <div class="discount-price">
+                                <span class="discount-n"><%= episode.discount %></span>
+                                <span class="discount-t">تخفیف</span>
+                              </div>
+                        <% }); %>
+                        <h3><a href="<%= engines[i].path() %>"><%= engines[i].title %></a></h3>
+                        <% if(engines[i].episodes.length){ %> 
+                        <% engines[i].episodes.forEach(episode => { %>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-6 text-right">
+                                    <span class="under-price"><%= episode.notPrice %> هزار تومان</span>
+                                </div>
+                                <div class="col-6 col-md-6 text-right">
+                                    <span class="green-price"><%= engines[i].price %> تومان</span>
+                                </div>
+                            </div><!--row-->
+                    <% }); %> 
+                    <% }else{ %> 
+                       <p class="price-s"><%= engines[i].price %> هزار تومان</p>
+                    <% } %> 
+                        
+                    <div class="bag_plus">
+                        <% if(engines[i].typetwo == 'available') { %>
+                        <a href="/cart/addItem<%= engines[i].path() %>" class="shop-area">
+                            <img src="/img/bag.png" class="img-fluid" alt="">
+                        </a>
+                        <% }else{ %>
+                            <form id="available" action="/available/<%= engines[i]._id %>" method="POST">
+                                <div class="ui labeled button" tabindex="0">
+                                <button type="submit">
+                                    <i class="far fa-bell"></i>
+                                    <%= engines[i].available %>
+                                   
+                                </button>
+                            </div>
+                            <span class="available-text">در صورت موجود شدن به من خبر بده</span>
+                            </form>
+                            
+                        <% } %>
+                    </div>    
+                </div>
+            </div>
+           
+            <% }; %>
+            
+
+            </div><!--row-->
+        </div><!--box-area-->
+        </div>
+    </section>
+    <section class="section_area mt-4 mb-4">
+        <div class="container">
+            <div class="box-area">
+                <div class="row">
+                    <div class="col-6 col-md-6 col-lg-6 text-right">
+                        <h3><i class="fas fa-caret-square-left"></i> محبوب ترین ها</h3>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-6">
+                        <p><a href="#">مشاهده بیشتر</a></p>
+                    </div>
+                </div><!--row-->
+                <div class="border-area"></div>
+            <div class="row">
+                <% for (i = engines.length - 2; i >= 0; i--) { %>
+                    <% if(i === 3){ %>
+                       <% break; %>
+                       <% } %>    
+            <div class="col-12 col-md-3 col-lg-3"> 
+                <div class="item-area mt-2">
+                    <a href="<%= engines[i].path() %>"><img src="/uploads/<%= engines[i].file %>" class="img-fluid" alt="<%= engines[i].title %>"></a>
+                        <% engines[i].episodes.forEach(episode => { %>
+                            <div class="discount-price">
+                                <span class="discount-n"><%= episode.discount %></span>
+                                <span class="discount-t">تخفیف</span>
+                              </div>
+                        <% }); %>
+                        <h3><a href="<%= engines[i].path() %>"><%= engines[i].title %></a></h3>
+                        <% if(engines[i].episodes.length){ %> 
+                        <% engines[i].episodes.forEach(episode => { %>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-6 text-right">
+                                    <span class="under-price"><%= episode.notPrice %> هزار تومان</span>
+                                </div>
+                                <div class="col-6 col-md-6 text-right">
+                                    <span class="green-price"><%= engines[i].price %> تومان</span>
+                                </div>
+                            </div><!--row-->
+                    <% }); %> 
+                    <% }else{ %> 
+                       <p class="price-s"><%= engines[i].price %></p>
+                    <% } %> 
+                        
+                    <div class="bag_plus">
+                        <% if(engines[i].typetwo == 'available') { %>
+                        <a href="/cart/addItem<%= engines[i].path() %>" class="shop-area">
+                            <img src="/img/bag.png" class="img-fluid" alt="">
+                        </a>
+                        <% }else{ %>
+                            <form id="available" action="/available/<%= engines[i]._id %>" method="POST">
+                                <div class="ui labeled button" tabindex="0">
+                                <button type="submit">
+                                    <i class="far fa-bell"></i>
+                                    <%= engines[i].available %>
+                                   
+                                </button>
+                            </div>
+                            <span class="available-text">در صورت موجود شدن به من خبر بده</span>
+                            </form>
+                            
+                        <% } %>
+                    </div>    
+                </div>
+            </div>
+           
+            <% }; %>
+            
+            </div><!--row-->
+        </div><!--box-area-->
+        </div>
+    </section>
+    <section class="section_area mt-4 mb-4">
+        <div class="container">
+            <div class="box-area">
+                <div class="row">
+                    <div class="col-6 col-md-6 col-lg-6 text-right">
+                        <h3><i class="fas fa-caret-square-left"></i> جدیدترین ها</h3>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-6">
+                        <p><a href="#">مشاهده بیشتر</a></p>
+                    </div>
+                </div><!--row-->
+                <div class="border-area"></div>
+            <div class="row">
+               
+                <% for (i = engines.length - 6; i >= 0; i--) { %>
+                    <% if(i === 10){ %>
+                       <% break; %>
+                       <% } %>    
+            <div class="col-12 col-md-3 col-lg-3"> 
+                <div class="item-area mt-2">
+                    <a href="<%= engines[i].path() %>"><img src="/uploads/<%= engines[i].file %>" class="img-fluid" alt="<%= engines[i].title %>"></a>
+                        <% engines[i].episodes.forEach(episode => { %>
+                            <div class="discount-price">
+                                <span class="discount-n"><%= episode.discount %></span>
+                                <span class="discount-t">تخفیف</span>
+                              </div>
+                        <% }); %>
+                        <h3><a href="<%= engines[i].path() %>"><%= engines[i].title %></a></h3>
+                        <% if(engines[i].episodes.length){ %> 
+                        <% engines[i].episodes.forEach(episode => { %>
+                            <div class="row mb-3">
+                                <div class="col-6 col-md-6 text-right">
+                                    <span class="under-price"><%= episode.notPrice %> هزار تومان</span>
+                                </div>
+                                <div class="col-6 col-md-6 text-right">
+                                    <span class="green-price"><%= engines[i].price %> تومان</span>
+                                </div>
+                            </div><!--row-->
+                    <% }); %> 
+                    <% }else{ %> 
+                       <p class="price-s"><%= engines[i].price %></p>
+                    <% } %> 
+                        
+                    <div class="bag_plus">
+                        <% if(engines[i].typetwo == 'available') { %>
+                        <a href="/cart/addItem<%= engines[i].path() %>" class="shop-area">
+                            <img src="/img/bag.png" class="img-fluid" alt="">
+                        </a>
+                        <% }else{ %>
+                            <form id="available" action="/available/<%= engines[i]._id %>" method="POST">
+                                <div class="ui labeled button" tabindex="0">
+                                <button type="submit">
+                                    <i class="far fa-bell"></i>
+                                    <%= engines[i].available %>
+                                   
+                                </button>
+                            </div>
+                            <span class="available-text">در صورت موجود شدن به من خبر بده</span>
+                            </form>
+                            
+                        <% } %>
+                    </div>    
+                </div>
+            </div>
+           
+            <% }; %> 
+               
+            </div><!--row-->
+        </div><!--box-area-->
+        </div>
+    </section>

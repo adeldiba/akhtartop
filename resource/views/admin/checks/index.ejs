@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+    <h2>تایید چک کاربر</h2>
+    <div class="btn-group">
+        <a href="/admin/checks/approved" class="btn btn-sm btn-primary">چک های تایید نشده</a>
+    </div>
+</div>
+
+<% if(checks.docs.length ){ %> 
+<% checks.docs.forEach(check => { %> 
+<div class="availables">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <img src="/uploads/<%= check.file %>" class="img-fluid z-depth-1" alt="">
+        </div>
+        <div class="col-12 col-md-4 available_u">
+            <p>نام کاربر : <span><%= check.user.name %></span></p>
+            <p>شماره همراه : <span><%= check.user.phone %></span></p>
+            <p>ایمیل : <span><%= check.user.email %></span></p>
+            
+        </div>
+        <div class="col-12 col-md-4 approved mt-5">
+            <% if(check.approved == true) { %>
+                <h2>چک تایید شد</h2>
+            <% }else if(check.approved == false){ %>
+                <h3>چک تایید نشد</h3>
+            <% }else{ %> 
+                <h4>کاربر منتظر تایید چک</h4>
+            <% } %>
+        </div>        
+    </div>
+</div>
+<% }); %>
+<% }else{ %>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="not-contact">
+                <p>فعلا تصویر چکی برای تایید دریافت نکرده اید.</p>
+            </div>
+        </div>
+    </div> 
+<% } %>
+

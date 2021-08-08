@@ -1,0 +1,43 @@
+
+    <section class="register-area mt-5">
+        <div class="container">
+            <div class="box-area">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12 text-right">
+                        <h3><i class="fas fa-caret-square-left"></i> عضویت کاربر</h3>
+                    </div>
+                </div><!--row-->
+                <div class="border-area"></div>
+                <form method="POST" action="/auth/register" class="mt-5 text-right">
+                  <%- include(viewPath('layouts/error-messages')) -%>
+                        
+                    <div class="md-form">
+                        <input type="text" id="name" name="name" value="<%= old('name') %>" class="form-control">
+                        <label for="name">نام کامل</label>
+                      </div>
+                      <div class="md-form">
+                        <input type="text" id="phone" name="phone" class="form-control" value="<%= old('phone', mobile) %>">
+                        <label for="phone">تلفن همراه</label>
+                      </div>
+                      <div class="md-form">
+                        <input type="email" id="email" name="email" class="form-control" value="<%= old('email') %>">
+                        <label for="email">آدرس ایمیل</label>
+                      </div>
+                      <div class="md-form">
+                        <input type="password" id="password" name="password" class="form-control" value="<%= old('password') %>">
+                        <label for="password">پسورد</label>
+                      </div>
+                      <div class="form-group">
+                        <%- recaptcha %>
+                        </div>
+                      <div class="row mt-5">
+                        <div class="col-12 text-center">
+                            <div class="btn-add mt-2">
+                           <button type="submit"><i class="fas fa-play"></i> دریافت کد تایید</button> 
+                        </div>
+                    </div>
+                </div><!--row-->
+                </form>
+            </div>
+        </div>
+    </section>

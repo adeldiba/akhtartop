@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2>دسته ها فروش ویژه</h2>
+        <div class="btn-group">
+            <a href="/admin/specialCategories/create" class="btn btn-sm btn-primary">افزودن دسته جدید</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>عنوان دسته</th>
+                <th>نوع</th>
+                <th>تنظیمات</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% specialCategories.docs.forEach(specialCategory => { %>
+                    <tr>
+                        <td><a href="#"><%= specialCategory.name %></a></td>
+                        <td><%= specialCategory.parent ? specialCategory.parent.name : 'دسته اصلی' %></td>
+                        <td>
+                            <form action="/admin/specialCategories/<%= specialCategory.id %>?_method=DELETE" method="post">
+                                <input type="hidden" name="_csrf" value="<%= req.csrfToken() %>">
+                                <div class="btn-group btn-group-sm">
+                                    <a href="/admin/specialCategories/<%= specialCategory.id %>/edit"  class="btn btn-primary">ویرایش</a>
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <%- include(viewPath('layouts/pagination') ,{ pages : specialCategories, page: specialCategories}) %>
+    </div>
+    
+    

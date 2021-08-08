@@ -1,0 +1,67 @@
+
+<div class="profile-right pb-3">
+    <div class="profile-img">
+        <img src="/img/men-profile.png" class="img-fluid" alt="">
+        <span>09148493601</span>
+        <div class="profile-tolbar">
+            <span class="circle-profile"></span>
+            <span class="p-t" >فعال سازی کیف پول</span>
+        </div>
+    </div><!--profile-img-->
+    <div class="profile-main mt-4">
+        <ul>
+            <li>
+                <a class="<%= req.url == '/user/panel' ? 'active' : '' %>"  href="/user/panel">داشبورد</a>
+                <img src="/img/dashboard.png" class="img-fluid" alt="">
+            </li>
+            <li>
+                <a class="<%= req.url == '/user/panel/history' ? 'active' : ''%> " href="/user/panel/history">سفارش‌های من</a>
+                <img src="/img/supermarket.png" class="img-fluid" alt="">
+            </li>
+            <li>
+                <a class="<%= req.url == 'user/panel' ? 'active' : ''%>" href="/user/panel/favorites">لیست علاقه مندی ها</a>
+                <img src="/img/list.png" class="img-fluid" alt="">
+            </li>
+            <li>
+                <a class="<%= req.url == '/user/panel/comment' ? 'active' : ''%>" href="/user/panel/comment">نظرات</a>
+                <img src="/img/comments (1).png" class="img-fluid" alt="">
+            </li>
+        </ul>
+    </div><!--profile-main-->
+    <div class="profile-web mt-4">
+        <div class="nav-profile">
+            <ul>
+                <li>
+                    <a class="<%= req.url == '/user/panel/profile' ? 'active' : ''%>" href="/user/panel/profile">آدرس های من</a>
+                    <img src="/img/address.png" class="img-fluid" alt="">
+                </li>
+                <li>
+                    <a href="#">کارت های تخفیف</a>
+                    <img src="/img/sale.png" class="img-fluid" alt="">
+                </li>
+                <li>
+                    <a class="<%= req.url == '/user/panel/messages' ? 'active' : ''%>" href="/user/panel/messages">پیغام ها از طرف وبسایت</a>
+                    <img src="/img/contact-p.png" class="img-fluid" alt="">
+                </li>
+                <li>
+                    <a href="#">بازدید های اخیر</a>
+                    <img src="/img/time.png" class="img-fluid" alt="">
+                </li>
+                <li>
+                    <a href="#">اطلاعات حساب</a>
+                    <img src="/img/alert.png" class="img-fluid" alt="">
+                </li>
+                <li class="speshial">
+                    <a href="/user/panel/experts">فروشنده ویژه شوید</a>
+                    <img src="/img/alert.png" class="img-fluid" alt="">
+                </li>
+            </ul>
+        </div>
+    </div><!--profile-web-->
+    <div class="exit mt-5">
+        <a href="/logout">
+            <img src="/img/cross.png" class="img-fluid" alt="">
+            خارج شدن از حساب کاربری
+        </a>
+    </div>
+</div>

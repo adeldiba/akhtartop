@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-sm-12 col-md-10">
+        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h2>ویرایش محتوای درخواست متخصص فنی</h2>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-2">
+        <div class="text-left">
+            <a href="/admin/technicals" type="submit" class="btn btn-info">بازگشت</a>
+        </div>
+    </div>
+</div><!--row-->
+
+<form class="form-horizontal" action="/admin/technicals/<%= technical._id %>?_method=put" method="post">
+
+    <%- include(viewPath('layouts/error-messages')) -%>
+    <input type="hidden" name="_csrf" value="<%= req.csrfToken() %>">
+    <div class="form-group row">
+        <div class="col">
+            <label for="title" class="control-label font-weight-bold">عنوان خدمات</label>
+            <input type="text" class="form-control" name="title" value="<%= technical.title %>" id="title">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="lang" class="control-label font-weight-bold font-weight-bold">زبان نمایشی</label>
+            <select name="lang" id="lang" class="form-control">
+                <option value="fa" <%= technical.lang == 'fa' ? 'selected' : '' %> >زبان فارسی</option>
+                <option value="tr" <%= technical.lang == 'tr' ? 'selected' : '' %>>زبان ترکی</option>
+            </select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="images" class="control-label font-weight-bold">تصویر خدمات</label>
+            <input type="file" class="form-control" name="images" value="<%= technical.images %>" id="images">
+        </div>
+    </div>
+    <div class="form-group row">
+        <% Object.entries(technical.images).forEach(([size , image]) => { %>
+            <div class="col-sm-2">
+                <label class="control-label">
+                    <%= size %>
+                    <input type="radio" name="imagesThumb" value="<%= image %>" checked="">
+                    <a href="<%= image %>" target="_blank"><img src="<%= image %>" width="100%"></a>
+                </label>
+            </div>
+        <% }) %>
+    </div>
+
+    <div class="form-group row">
+      <div class="col">
+          <label for="body" class="control-label font-weight-bold">متن</label>
+          <textarea rows="5" class="form-control" name="body" id="body" placeholder="متن مقاله را وارد کنید">
+            <%= technical.body %>
+          </textarea>
+      </div>
+    </div>
+
+    <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-danger">ارسال</button>
+            </div>
+        </div>
+</form>
+
+<link rel="stylesheet" href="/css/component-chosen.min.css">
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.6/chosen.jquery.min.js"></script>
+<script>
+    CKEDITOR.replace('body', {
+        filebrowserUploadUrl : '/admin/upload-image'
+    });
+
+$('.form-control-chosen').chosen({
+  // Chosen options here
+});    
+</script>

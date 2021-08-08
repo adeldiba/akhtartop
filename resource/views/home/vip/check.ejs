@@ -1,0 +1,99 @@
+<section class="vip_area mt-3 mb-5">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-10 col-md-7 col-lg-7  ">
+                <div class="check_header">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h2>خرید با چک</h2>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <p>محدودیت حداکثر تا ۵میلیون تومان</p>
+                        </div>
+                    </div><!--row-->
+                </div>
+                <% if(checks.length) { %>
+                    <% checks.forEach(check => { %>
+                        <div class="check_img d-flex justify-content-center">
+                            <img src="/uploads/<%= check.file %>" class="img-fluid" alt="">
+                            
+                        </div>
+                        <% if(check.approved == true) { %>
+                            <div class="check_yes mb-5">
+                            <div class="row">
+                                <div class="col-12 col-md-6 mt-2 text-center">
+                                    <div class="confirm">
+                                        <p>چک شما تایید شد</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 mt-1 d-flex justify-content-center">
+                                    <p class="square_s"></p>
+                                    <span class="success_check">&#10003;</span>
+                                </div>
+                            </div> <!--row-->
+                        </div>
+                        <% }else if(check.approved == false){ %>
+                            <div class="check_yes mb-5">
+                            <div class="row">
+                                <div class="col-12 col-md-6 mt-2 text-center">
+                                    <div class="not-confirm">
+                                        <p>چک شما تایید نشد!</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6 mt-1 d-flex justify-content-center">
+                                    <p class="square_z"></p>
+                                    <span>&#215;</span>
+                                </div>
+                            </div> <!--row-->
+                        </div>
+                        <% }else { %> 
+                            <div class="check_yes mb-5">
+                            <div class="row">
+                                <div class="col-12 col-md-8 mt-2 text-center">
+                                    <p>منتظر تاییدیه چک خود باشید</p>
+                                </div>
+                                <div class="col-12 col-md-4 mt-1 d-flex justify-content-center">
+                                    <p class="square"></p>
+                                </div>
+                            </div> <!--row-->
+                        </div>
+                        <% } %>
+                    <% }); %>
+            <% }else{ %> 
+                <form class="form-horizontal" action="/vip/check" method="post" enctype="multipart/form-data">
+                    <div class="text-right mt-3">
+                        <%- include(viewPath('layouts/error-messages')) -%> 
+                    </div>
+                <div class="image-upload-wrap">
+                    <input class="file-upload-input" type='file' name="file" onchange="readURL(this);" accept="image/*">
+                    <div class="drag-text">
+                      <img src="/img/copyright.png" class="img-fluid" alt="">
+                    </div>
+                    <div class="file_text">
+                        <div class="row">
+                            <div class="col-12 col-md-6 text-center">
+                                <p>تصویر چک خود را آپلود بکنید</p>
+                                <span>(تصویر خوانا و کامل باشد)</span>
+                            </div>
+                            <div class="col-12 col-md-6 text-center">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div><!--row-->
+                    </div>
+                  </div>
+                  
+                    <div class="file-upload-content">
+                    <img class="file-upload-image" src="#" alt="">
+                    <div class="image-title-wrap">
+                      <button type="button" onclick="removeUpload()" class="remove-image">حذف <span class="image-title">تصویر</span></button>
+                      <button type="submit" class="send-image">ارسال تصویر چک</button>
+                    </div>
+                  </div>
+                </form>
+                <% } %>
+                </div>
+            </div>
+        </div><!--row-->
+    </div>
+</section>
+

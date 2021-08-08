@@ -1,0 +1,14 @@
+<section class="website mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 text-right">
+                <% guides.forEach(guide => { %>
+                <div class="website_item">
+                    <h2><%= guide.title %></h2>
+                    <p><%- guide.body %></p>
+                </div>
+                <% }); %>
+            </div>
+        </div><!--row-->
+    </div>
+</section>

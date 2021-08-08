@@ -1,0 +1,53 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2>لوازم یدکی ماشین آلات </h2>
+        <div class="btn-group">
+            <a href="/admin/engines/create" class="btn btn-sm btn-primary">ایجاد محصول جدید</a>
+            <a href="/admin/episodes" class="btn btn-sm btn-danger">بخش محصولات ویژه</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>تصویر محصول</th>
+                <th>عنوان محصول</th>
+                <th>مقدار بازدید</th>
+                <th>قیمت محصول</th>
+                <th>مرتب سازی بر اساس</th>
+                <th>وضعیت محصول</th>
+                <th>تاریخ</th>
+                <th>تنظیمات</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% engines.docs.forEach(engine =>{ %>
+                    <tr>
+                        <td><img src="/uploads/<%= engine.file %>" class="img-fluid" width="100px" alt=""></td>
+                        <td><a href="#"><%= engine.title %></a></td>
+                        <td><%= engine.viewCount %></td>
+                        <td><%= engine.price %></td>
+                        <td><%= engine.typeToPersian() %></td>
+                         <td><%= engine.typetwoToPersian() %></td>
+                        <td>
+                            <%= date(engine.createdAt).format('jD jMMMM jYYYY') %>
+                        </td>
+                        <td>
+                            <form action="/admin/engines/<%= engine._id %>?_method=DELETE" method="post">
+                                
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="_token" value="Dso45XzqoXsAkRC8BBMQ63ZsOFS0c2tELkxR4i3Y">
+                                <div class="btn-group-sm">
+                                    <a href="/admin/engines/<%= engine._id %>/edit"  class="btn btn-primary">ویرایش</a>
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        
+        <%- include(viewPath('layouts/pagination') ,{ pagination : engines}) %>
+    </div>
+    
+    

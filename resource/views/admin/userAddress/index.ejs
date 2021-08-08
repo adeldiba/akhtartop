@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+    <h2>آدرس کاربران</h2>
+</div>
+<div class="table-responsive">
+    <% panels.docs.forEach(panel =>{ %> 
+    <div class="box-profile mt-5 example">
+            
+    <div class="profile-user">
+           
+      <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+              <label class="text-default font">نام و نام خانوادگی :</label>
+              <span><%= panel.name %></span>
+              <span><%= panel.user.email %></span>
+          </div>
+          <div class="col-sm-12 col-md-6 col-lg-6">
+              <label class="text-default">شماره موبایل :</label>
+              <span><%= panel.phone %></span>
+          </div>
+          </div><!--row-->
+          <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label class="text-default">کد پستی :</label>
+                    <span><%= panel.postal_code %></span>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-6">
+                    <label class="text-default">شماره تلفن ثابت :</label>
+                    <span><%= panel.telphone %></span>
+                </div>
+        </div><!--row-->
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <label class="text-default">تاریخ تولد :</label>
+                <span><span><%=panel.birth_year %></span>/<span><%=panel.birth_month %></span>/<span><%=panel.birth_day%></span></span>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <label class="text-default">کد ملی :</label>
+                <span><%= panel.codeM %></span>
+            </div>
+          </div><!--row-->
+          <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label class="text-default">شماره شناسنامه :</label>
+                    <span><%= panel.certificate %></span>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label class="text-default">استان :</label>
+                    <span><%= panel.state %></span>
+                </div>
+            </div><!--row-->
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label class="text-default">شهر :</label>
+                    <span><%= panel.city %></span>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label class="text-default">آدرس دقیق :</label>
+                    <span><%- panel.address %></span>
+                </div>
+            </div><!--row-->
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label class="text-default">شهر :</label>
+                    <span><%= panel.location %></span>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6">
+                    <label class="text-default">آدرس دقیق :</label>
+                    <span><%- panel.cart %></span>
+                </div>
+            </div><!--row-->
+           
+      </div><!--profile-user-->
+      
+    </div>
+    <% }) %>
+</div>
+

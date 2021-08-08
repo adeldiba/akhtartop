@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+    <h2>خبر دادن به کاربر برای موجود بودن محصول</h2>
+</div>
+
+<% if(availables.docs.length ){ %> 
+<% availables.docs.forEach(available => { %> 
+<div class="availables">
+    <div class="row">
+        <div class="col-12 col-md-4">
+            <img src="<%= available.engine.thumb %>" class="img-fluid z-depth-1" alt="">
+        </div>
+        <div class="col-12 col-md-4 available_e">
+            <h4><%= available.engine.title %></h4>
+            <p>وضعیت محصول : <span><%= available.engine.typetwoToPersian() %></span></p>
+        </div>
+        <div class="col-12 col-md-4 available_u">
+            <p>نام کاربر : <span><%= available.user.name %></span></p>
+            <p>شماره همراه : <span><%= available.user.phone %></span></p>
+            <p>ایمیل : <span><%= available.user.email %></span></p>
+            <form class="mt-5" action="/admin/availables/<%= available._id %>?_method=DELETE" method="post">
+                                
+                <input type="hidden" name="_method" value="delete">
+                <input type="hidden" name="_token" value="Dso45XzqoXsAkRC8BBMQ63ZsOFS0c2tELkxR4i3Y">
+                <div class="btn-group-sm">
+                    <button type="submit" class="btn btn-danger">بهش خبر دادم. (حذف)</button>
+                </div>
+            </form>
+        </div>
+        <div class="bell text-center mx-auto mt-4">این کاربر درخواست کرده است که در صورت موجود بودن محصول در انبار به او خبر بدهیم.</div>
+    </div>
+</div>
+<% }); %>
+<% }else{ %>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="not-contact">
+                <p>فعلا در صورت موجود نبودن محصول خبری  دریافت نکرده اید...</p>
+            </div>
+        </div>
+    </div> 
+<% } %>
+

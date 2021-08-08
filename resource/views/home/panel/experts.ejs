@@ -1,0 +1,264 @@
+
+<section class="profile-sellers mt-4 mb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6 text-center">
+                <%- include(viewPath('home/panel/exaside')); %> 
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="profile-left mt-4">
+                    <div class="warning text-right">
+                        <p><span class="attention">توجه:</span> پر کردن تمام موارد الزامی می باشد</p>
+                    </div>
+                    <div class="seller_p text-right mt-4">
+                      <h4>چه نوع فروشنده‌ای هستید؟</h4> 
+                      <div class="seller_tab mt-4">
+                        <div class="tabs">
+
+                            <a class="radio-tem" href="/user/panel/experts"> 
+                                شخص حقیقی
+                                <span class="checkround"></span>
+                            </a>
+
+                            <a class="radio-tem" href="/user/panel/experts/legal">
+                                شخص حقوقی
+                                <span class="check_false"></span>
+                            </a>
+                              <div class="seller_text mt-4">
+                                <p>
+                                    <span class="seller_bold">شخص حقیقی </span>
+                                 فردی است که دارای خصوصیاتی مختص به خود مانند:نام،نام خانوادگی شماره شناسنامه و کد ملی و غیره می باشد
+                                </p> 
+                                <p>
+                                    <span class="seller_bold">شخص حقوقی </span>
+                                     موسسات و شرکت هایی هستند که پس از طی مراحل قانونی ثبت می شوند و دارای مشخصاتی مانند:نام شخص حقوقی،تاریخ ثبت،شماره ثبت،کد شناسایی،کد اقتصادی موضوع فعالیت و غیره می باشد 
+                                </p>  
+                              </div>
+                              <section class="legal profile-form" id="content1">
+                                <h3>اطلاعات شخصی</h3> 
+                                <form action="/user/panel/experts" method="POST" class="mt-4">
+                                    <%- include(viewPath('layouts/error-messages')) -%>
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <label for="nameP">نام </label>
+                                            <input type="text" name="nameP" id="nameP" value="<%= old('nameP') %>" class="form-control">
+                                        </div>
+                                        <div class="col">
+                                            <label for="nameP_family">نام خانوادگی</label>
+                                            <input type="text" name="nameP_family" id="nameP_family" value="<%= old('nameP_family') %>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <p class="mt-4">تاریخ تولد <span>(مثال 65/03/29)</span></p>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fas fa-caret-down"></i>
+                                    </span>
+                                    <select id="birth_dayP" value="<%= old('birth_dayP') %>" name="birth_dayP" class="form-control">
+                                        <option value="0"<%= old('birth_dayP') === '0' ? 'selected' : '' %>>روز</option>
+                                        <option value="1"<%= old('birth_dayP') === '1' ? 'selected' : '' %>>01</option>
+                                        <option value="2"<%= old('birth_dayP') === '2' ? 'selected' : '' %>>02</option>
+                                        <option value="3"<%= old('birth_dayP') === '3' ? 'selected' : '' %>>03</option>
+                                        <option value="4"<%= old('birth_dayP') === '4' ? 'selected' : '' %>>04</option>
+                                        <option value="5"<%= old('birth_dayP') === '5' ? 'selected' : '' %>>05</option>
+                                        <option value="6"<%= old('birth_dayP') === '6' ? 'selected' : '' %>>06</option>
+                                        <option value="7"<%= old('birth_dayP') === '7' ? 'selected' : '' %>>07</option>
+                                        <option value="8"<%= old('birth_dayP') === '8' ? 'selected' : '' %>>08</option>
+                                        <option value="9"<%= old('birth_dayP') === '9' ? 'selected' : '' %>>09</option>
+                                        <option value="10"<%= old('birth_dayP') === '10' ? 'selected' : '' %>>10</option>
+                                        <option value="11"<%= old('birth_dayP') === '11' ? 'selected' : '' %>>11</option>
+                                        <option value="12"<%= old('birth_dayP') === '12' ? 'selected' : '' %>>12</option>
+                                        <option value="13"<%= old('birth_dayP') === '13' ? 'selected' : '' %>>13</option>
+                                        <option value="14"<%= old('birth_dayP') === '14' ? 'selected' : '' %>>14</option>
+                                        <option value="15"<%= old('birth_dayP') === '15' ? 'selected' : '' %>>15</option>
+                                        <option value="16"<%= old('birth_dayP') === '16' ? 'selected' : '' %>>16</option> 
+                                        <option value="17"<%= old('birth_dayP') === '17' ? 'selected' : '' %>>17</option>
+                                        <option value="18"<%= old('birth_dayP') === '18' ? 'selected' : '' %>>18</option>
+                                        <option value="19"<%= old('birth_dayP') === '19' ? 'selected' : '' %>>19</option>
+                                        <option value="20"<%= old('birth_dayP') === '20' ? 'selected' : '' %>>20</option>
+                                        <option value="21"<%= old('birth_dayP') === '21' ? 'selected' : '' %>>21</option>
+                                        <option value="22"<%= old('birth_dayP') === '22' ? 'selected' : '' %>>22</option>
+                                        <option value="23"<%= old('birth_dayP') === '23' ? 'selected' : '' %>>23</option>
+                                        <option value="24"<%= old('birth_dayP') === '24' ? 'selected' : '' %>>24</option>
+                                        <option value="25"<%= old('birth_dayP') === '25' ? 'selected' : '' %>>25</option>
+                                        <option value="26"<%= old('birth_dayP') === '26' ? 'selected' : '' %>>26</option>
+                                        <option value="27"<%= old('birth_dayP') === '27' ? 'selected' : '' %>>27</option>
+                                        <option value="28"<%= old('birth_dayP') === '28' ? 'selected' : '' %>>28</option>
+                                        <option value="29"<%= old('birth_dayP') === '29' ? 'selected' : '' %>>29</option>
+                                        <option value="30"<%= old('birth_dayP') === '30' ? 'selected' : '' %>>30</option>
+                                        <option value="31"<%= old('birth_dayP') === '31' ? 'selected' : '' %>>31</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col text-center"> 
+                                        <span class="input-group-text" id="basic-addon1">
+                                            <i class="fas fa-caret-down"></i>
+                                        </span>
+                                    <select name="birth_monthP" id="birth_monthP" value="<%= old('birth_monthP') %>" class="form-control b-select">
+                                        <option value="0" <%= old('birth_monthP') === '0' ? 'selected' : '' %>>ماه</option>
+                                        <option value="1"<%= old('birth_monthP') === '1' ? 'selected' : '' %>>فروردین</option>
+                                        <option value="2"<%= old('birth_monthP') === '2' ? 'selected' : '' %>>اردیبهشت</option>
+                                        <option value="3"<%= old('birth_monthP') === '3' ? 'selected' : '' %>>خرداد</option>
+                                        <option value="4"<%= old('birth_monthP') === '4' ? 'selected' : '' %>>تیر</option>
+                                        <option value="5"<%= old('birth_monthP') === '5' ? 'selected' : '' %>>مرداد</option>
+                                        <option value="6"<%= old('birth_monthP') === '6' ? 'selected' : '' %>>شهریور</option>
+                                        <option value="7"<%= old('birth_monthP') === '7' ? 'selected' : '' %>>مهر</option>
+                                        <option value="8"<%= old('birth_monthP') === '8' ? 'selected' : '' %>>آبان</option>
+                                        <option value="9"<%= old('birth_monthP') === '9' ? 'selected' : '' %>>آذر</option>
+                                        <option value="10"<%= old('birth_monthP') === '10' ? 'selected' : '' %>>دی</option>
+                                        <option value="11"<%= old('birth_monthP') === '11' ? 'selected' : '' %>>بهمن</option>
+                                        <option value="12"<%= old('birth_monthP') === '12' ? 'selected' : '' %>>اسفند</option>
+                                    </select>
+                                </s> 
+                                </div>
+                                <div class="col text-right">  
+                                    <input type="text" name="birth_yearP" id="birth_yearP" value="<%= old('birth_yearP') %>" class="form-control pl" placeholder="سال">
+                                </div> 
+                            </div><!--row-->  
+                            <p class="mt-4">جنسیت</p>
+                            <div class="row mb-4">
+                                <div class="col">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">زن</label>
+                                      </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">مرد</label>
+                                      </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">سایر جنسیت ها</label>
+                                      </div>
+                                </div>
+                            </div><!--row-->
+                            <div class="row mb-4">   
+                                <div class="col">
+                                    <label for="certificateP">شماره شناسنامه</label>
+                                    <input type="text" name="certificateP" id="certificateP" value="<%= old('certificateP') %>" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <label for="codeMP">کد ملی</label>
+                                    <input type="text" name="codeMP" id="codeMP" value="<%= old('codeMP') %>" class="form-control">
+                                </div>
+                            </div><!--row-->
+                                    <h3>اطلاعات تماس</h3>
+
+                                    <div class="row mt-4 mb-4">   
+                                        <div class="col">
+                                            <label for="exampleForm2">استان</label>
+                                            <span class="input-group-text m-s" id="basic-addon1">
+                                                <i class="fas fa-caret-down"></i>
+                                            </span>
+                                            <select name="stateP" id="stateP" value="<%= old('stateP') %>" class="province month-input form-control">       
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="exampleForm2">شهر</label>
+                                            <span class="input-group-text m-s" id="basic-addon1">
+                                                <i class="fas fa-caret-down"></i>
+                                            </span>
+                                                <select name="cityP" id="cityP" value="<%= old('cityP') %>" class="city month-input form-control">
+                                                    <option value="selectvalues"<%= old('cityP') === 'آذربایجان‌شرقی' ? 'selected' : '' %>></option>
+                                                    <option value="'چهارمحال‌و‌بختیاری'"<%= old('cityP') === 'چهارمحال‌و‌بختیاری' ? 'selected' : '' %>></option>
+                                                    <option value="selectvalues"<%= old('cityP') === 'خراسان‌جنوبی' ? 'selected' : '' %>></option>
+                                                    <option value="selectvalues"<%= old('cityP') === 'خراسان‌رضوی' ? 'selected' : '' %>></option>
+                                                </select>
+                                            
+                                        </div>
+                                    </div><!--row-->
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <label for="addressP">آدرس</label>
+                                            <input type="text" name="addressP" id="addressP" value="<%= old('addressP') %>" class="form-control" placeholder="آدرس خود را به صورت دقیق(محله-خیابان اصلی-کوچه-پلاک-واحد)وارد بنمایید">
+                                        </div>
+                                    </div><!--row-->
+                                    <div class="row mb-4 text-right">
+                                        <div class="col">
+                                            <label for="postal_codeP">کد پستی</label>
+                                            <input type="text" name="postal_codeP" id="postal_codeP" value="<%= old('postal_codeP') %>" class="form-control">
+                                        </div>
+                                        <div class="col text-right">
+                                            <label for="location">موقعیت مکانی</label>
+                                            <span class="input-group-text m-s" id="basic-addon1">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                            </span>
+                                            <input type="text" name="locationP" id="locationP" value="<%= old('locationP') %>" class="form-control" placeholder="موقعیت مکانی خود را ثبت کنید">
+                                        </div>
+                                    </div><!--row-->
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <label for="telphoneP">تلفن ثابت</label>
+                                            <input type="text" name="telphoneP" id="telphoneP" value="<%= old('telphoneP') %>" class="form-control">
+                                        </div>
+                                        <div class="col">
+                                            <label for="phoneP">تلفن همراه</label>
+                                            <input type="text" name="phoneP" id="phoneP" value="<%= old('phoneP') %>" class="form-control">
+                                        </div>
+                                    </div><!--row-->
+                                    <h3>اطلاعات تجاری</h3>
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <label for="store_name">نام فروشگاه</label>
+                                            <input type="text" name="store_name" id="store_name" value="<%= old('store_name') %>" class="form-control">
+                                        </div>
+                                    </div><!--row-->
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <label for="Shaba_number">شماره شبا(به نام شخص یا شرکت ثبت کننده)</label>
+                                            <input type="text" name="Shaba_number" id="Shaba_number" value="<%= old('Shaba_number') %>" class="form-control">
+                                        </div>
+                                    </div><!--row-->
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <label for="kala">قصد فروش چه کالایی را دارید</label>
+                                            <span class="input-group-text m-s" id="basic-addon1">
+                                                <i class="fas fa-caret-down"></i>
+                                            </span>
+                                            <input type="text" name="kala" id="kala" value="<%= old('kala') %>" class="form-control">
+                                        </div>
+                                    </div><!--row-->
+                                    <div class="row mb-4">
+                                        <div class="col-8">
+                                            <label for="variety">تعداد حدودی تنوع کالای آماده فروش</label>
+                                            <span class="input-group-text m-s" id="basic-addon1">
+                                                <i class="fas fa-caret-down"></i>
+                                            </span>
+                                            <input type="text" name="variety" id="variety" value="<%= old('variety') %>" class="form-control" placeholder="یکی از دسته بندی 1-13">
+                                        </div>
+                                    </div><!--row-->
+                                    <div class="form-group mt-4">
+                                        <%- recaptcha %>
+                                    </div>
+                                    <div class="row mt-5">
+                                        <div class="col-12 text-center">
+                                            <div class="btn-add mt-2">
+                                           <button type="submit"><i class="fas fa-play"></i> ثبت اطلاعات</button> 
+                                        </div>
+                                    </div>
+                                </div><!--row-->
+                                 </form>
+                            </section>
+                              
+                        </div><!--tabs-->
+                      </div> 
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <ul class="nav profile-footer-nav mt-5">
+                                <li><a href="#">فروشگاه آختارتاپ</a> </li>
+                                <li><a href="#">مرکز آموزش فروشندگان</a> </li>
+                                <li><a href="#">سوالات متداول</a> </li>
+                                <li><a href="#">مراحل ثبت نام</a> </li>
+                            </ul>
+                        </div>
+                    </div><!--row-->
+                </div>
+            </div>
+        </div><!--row-->
+    </div>
+    </section>

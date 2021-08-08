@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2>محتواهای اطلاعات آختارتاپ</h2>
+        <div class="btn-group">
+            <a href="/admin/informations/create" class="btn btn-sm btn-primary">ایجاد محتوای اطلاعات آختارتاپ</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th> نام اطلاعات</th>
+                <th>تاریخ</th>
+                <th>تنظیمات</th>
+               
+            </tr>
+            </thead>
+            <tbody>
+                <% informations.forEach(information =>{ %>
+                    <tr>
+                        <td><%= information.title %></td>
+                        <td><%= date(information.createdAt).format('jD jMMMM jYYYY') %></td>
+                        <td>
+                            <form action="/admin/informations/<%= information._id %>?_method=DELETE" method="post">
+                                <input type="hidden" name="_csrf" value="<%= req.csrfToken() %>">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="_token" value="Dso45XzqoXsAkRC8BBMQ63ZsOFS0c2tELkxR4i3Y">
+                                <div class="btn-group btn-group-sm">
+                                    <a href="/admin/informations/<%= information._id %>/edit"  class="btn btn-primary">ویرایش</a>
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    
+    

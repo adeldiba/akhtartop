@@ -1,0 +1,90 @@
+<section class="shopping-box mt-4 mb-4">   
+    <section class="factor-cart mt-5 mb-3">
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-7 col-lg-7 text-right align-items-center">
+                        
+                   
+                    <div class="factor-item">
+                        <% panels.forEach(panel => { %>
+                        <% let year = panel.city %> 
+                        <% if(year == 'تبریز'){
+                            year = panel.city.replace('تبریز' , '15000')
+                        }else if (year == 'ارومیه'){
+                            year = panel.city.replace('ارومیه' , '65000')
+                        }else{
+                            year = panel.city.replace(/\W/, '65000')
+                        } %>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-2">پیش فاکتور</p>
+                            </div>
+                            <div class="col-6 col-md-6">
+                                
+                                <p class="text-left p2 mt-2">کد تخفیف دارید : <span></span></p>
+                            </div>
+                           
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-4">مجموع خرید شما</p>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                <% cart.forEach(function(engine){ %>
+                                    <% let total = 0 %>
+                                    <% var sub = parseInt(engine.qty * engine.price) %>
+                                    <% total += +sub %>
+                                <p class="mt-4 factor-price"><%= parseInt(total) %> <span> تومان </span></p>
+                                <% }); %>
+                            </div>
+                        
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-4 ft"> تخفیف</p>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                
+                                <p class="mt-4 factor-ft"><%= episode.notPrice %> <span> تومان </span></p>
+                                
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-4">هزینه ارسال <span>(با توجه به میزان بار محاصبه میشود)</span></p>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                
+                                <p class="mt-4 factor-price"><%= parseInt(year) %> <span> تومان </span></p>
+                                
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row d-flex justify-content-center align-items-center text-center">
+                            <div class="col-12 col-md-8">
+                                <div class="factor-send mt-5">
+                                    <p>قابل پرداخت</p>
+                                    <p><%= parseInt(totalPrice + parseInt(year)) %> <span>تومان</span></p> 
+                                    <p class="fun">(قابل شمارو هم نداره)</p>
+                                </div> 
+                                <div class="send-btn mt-5">
+                                    <form action="/shopping/payment" method="post"> 
+                                        <button type="submit"><i class="fas fa-shopping-cart"></i>پرداخت نهایی و ثبت سفارش</button>
+                                    </form>
+                                </div>
+                            </div> 
+                        </div><!--row-->
+                    <% }) %>
+                    </div>
+                
+                
+                </div>
+            </div><!--row-->
+        </div>
+    </section>
+</section>

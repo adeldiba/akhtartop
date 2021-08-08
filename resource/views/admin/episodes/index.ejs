@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2>محصولات ویژه</h2>
+        <div class="btn-group">
+            <a href="/admin/episodes/create" class="btn btn-sm btn-primary">افزودن محصولات ویژه جدید</a>
+            <a href="/admin/engines" class="btn btn-sm btn-danger">بخش محصولات</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>درصد تخفیف محصول</th>
+                <th>قیمت قبلی محصول</th>
+                <th>تبدیل این محصول</th>
+                <th>تنظیمات</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% episodes.docs.forEach(episode => { %> 
+                    <tr>
+                        <td><%= episode.discount %></td>
+                        <td><%= episode.notPrice %></td>
+                        <td><%= episode.engine.title %></td>
+                        <td>
+                            <form action="/admin/episodes/<%= episode._id %>?_method=DELETE" method="post">
+                                <div class=" btn-group-sm">
+                                    <a href="/admin/episodes/<%= episode._id %>/edit"  class="btn btn-primary">ویرایش</a>
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <%- include(viewPath('layouts/pagination') ,{ pagination : episodes}) %>
+    </div>
+    
+    

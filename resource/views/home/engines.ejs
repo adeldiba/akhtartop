@@ -1,0 +1,254 @@
+<section class="engines-area mt-3 mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-4 text-right">
+                <div class="engine-right">
+                    <div class="engine-title">
+                        <h4>امکانات جستجو</h4>
+                    </div>
+                    <div class="engine-item">
+                        <%
+                            let {type , typetwo, brand, device, country } = req.query; 
+                        %>
+                        <form action="/engines" method="GET">
+                        <div class="row mb-4">
+                            <div class="col-8 col-md-8 w-100">
+                                <span class="engin-item-text">نمایش فقط کالاهای موجود</span>
+                            </div>
+                            <div class="col-4 col-md-4 text-right">
+                                <div class="mylabel">
+                                <input type="checkbox" name="typetwo" id="coding" value="available" <%= typetwo === 'available' ? 'checked' : '' %>>
+                                <div class="slidinggroove"></div>
+                                <label for="coding" name="typetwo"><p class="labeltern">روشن</p></label>
+                                
+                            </div>
+                            
+                        </div>
+                        </div><!--row-->
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <span class="engin-item-text">محدوده قیمت :</span>
+                            </div>
+                            <div class="col-12 col-md-12 mb-3">
+                                <div class="selector">
+                                    <div class="price-slider">
+                                        <div id="slider-range" class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                            <div class="ui-slider-range ui-corner-all ui-widget-header"></div>
+                                            <span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"></span>
+                                        </div>
+                                        <span class="seperator">-</span> <span id="max-price" data-max="60"  class="slider-price">39 میلیون تومان</span>
+                                        <span id="min-price" data-currency="" class="slider-price">0</span> 
+                                    </div> 
+                                </div>
+                            </div>
+                        </div><!--row-->
+                       
+                    
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                
+                                <nav class="sidebar">
+                                    <ul class="list-unstyled nav-list">
+                                      <li class="list_item noactive js-dropdown">
+                                          
+                                          <span class="list-text">نوع دستگاه و وسیله نقلیه</span>
+                                          <i class="fas fa-angle-down arrow-icon"></i>
+                                      </li> 
+                                      <ul class="list-unstyled sub-list">
+                                        <% devices.forEach(dev =>{ %>                                     
+                                            <li class="mt-3">
+                                                <label class="customcheck"><%= dev.name %>
+                                                    <input type="radio" value="<%= dev.slug %>"  name="device" <%= dev.slug === device ? 'checked' : '' %>>
+                                                    <span class="checkmark1"></span>
+                                                  </label>
+                                            </li>
+                                        <% }) %>
+                                      </ul> 
+                                    </ul>
+                                </nav>
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="row mt-4">
+                            <div class="col-12 col-md-12">
+                                <nav class="sidebar">
+                                    <ul class="list-unstyled nav-list">
+                                      <li class="list_item noactive js-dropdown2">
+                                          
+                                          <span class="list-text">کشور سازنده</span>
+                                          <i class="fas fa-angle-down arrow-icon"></i>
+                                      </li> 
+                                      <ul class="list-unstyled sub-list2">
+                                        <% countries.forEach(coun =>{ %>                                     
+                                            <li class="mt-3">
+                                                <label class="customcheck"><%= coun.name %>
+                                                    <input type="radio" value="<%= coun.slug %>"  name="country" <%= coun.slug === country ? 'checked' : '' %>>
+                                                    <span class="checkmark1"></span>
+                                                  </label>
+                                            </li>
+                                        <% }) %>
+                                      </ul> 
+                                    </ul>
+                                </nav>
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="row mt-4">
+                            <div class="col-12 col-md-12">
+                                <nav class="sidebar mb-3">
+                                    <ul class="list-unstyled nav-list">
+                                      <li class="list_item noactive js-dropdown3">
+                                          
+                                          <span class="list-text">برند</span>
+                                          <i class="fas fa-angle-down arrow-icon"></i>
+                                      </li> 
+                                      <ul class="list-unstyled sub-list3">
+                                        <% brands.forEach(br =>{ %>                                     
+                                            <li class="mt-3">
+                                                <label class="customcheck"><%= br.name %>
+                                                    <input type="radio" value="<%= br.slug %>"  name="brand" <%= br.slug === brand ? 'checked' : '' %>>
+                                                    <span class="checkmark1"></span>
+                                                  </label>
+                                              </li>
+                                            <% }) %>
+                                      </ul> 
+                                    </ul>
+                                </nav>
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="row mb-4">
+                            <div class="col-12 col-md-12 text-center">
+                                <button type="submit" class="btn btn-sm btn-filter">اعمال فیلتر</button>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8 col-lg-8 text-right">
+                <div class="engine-left">
+                    <div class="box-area pb-3">
+                        <div class="row">
+                            <% let{search} = req.query; %>
+                            <% if(search) { %> 
+                                <div class="col-6 col-md-7 col-lg-7 text-right">
+                                    
+                                    <h3><i class="fas fa-caret-square-left"></i> عبارت جستجو شده : <%= search %></h3>
+                                </div>
+                                <div class="col-6 col-md-5 col-lg-5 text-left">
+                                    <p class="mt-1"><span><%= engineCount %></span> مورد یافت شد</p>
+                                </div>
+                            <% }else{ %> 
+                                <div class="col-6 col-md-7 col-lg-7 text-right">
+                                    <h3><i class="fas fa-caret-square-left"></i> لوازم یدکی قطعات خودرو</h3>
+                                </div>
+                                <div class="col-6 col-md-5 col-lg-5 text-left">
+                                    <p class="mt-1"> تعداد محصول :  <span><%= engineCount %></span></p>
+                                </div>
+                            <% } %>
+                        </div><!--row-->
+                        
+                        <div class="border-area"></div>
+                        <div class="row">
+                            <% if(engines.docs.length) { %> 
+                            <% engines.docs.forEach(engine => { %>    
+                            <div class="col-12 col-md-4 col-lg-4 text-center">
+                                <div class="item-area mt-3">
+                                    <a href="<%= engine.path() %>"><img src="/uploads/<%= engine.file %>" class="img-fluid" alt="<%= engine.title %>"></a>
+                                    <% engine.episodes.forEach(episode => { %> 
+                                        <div class="discount-price3">
+                                        <span class="discount-n"><%= episode.discount %></span>
+                                        <span class="discount-t">تخفیف</span>
+                                        </div>
+                                        <% }); %>
+                                    <h3 class="mt-1"><a href="<%= engine.path() %>"><%= engine.title %></a></h3>
+                                    <% if(engine.episodes.length){ %> 
+                                    <% engine.episodes.forEach(episode => { %> 
+                                        <div class="row mt">
+                                            <div class="col-6 col-md-6 text-right">
+                                                <span class="under-price"><%= episode.notPrice %> تومان</span>
+                                            </div>
+                                            <div class="col-6 col-md-6 text-right">
+                                                <span class="green-price"><%= engine.price %> تومان</span>
+                                            </div>
+                                        </div><!--row-->
+                                    <% }); %>
+                                    <% }else{ %> 
+                                    <span class="price-m"><%= engine.price %> هزار تومان</span>
+                                    <% } %>
+                                    <div class="bag_plus2">
+                                        <% if(engine.typetwo == 'available') { %>
+                                        <a href="/cart/addItem<%= engine.path() %>" class="shop-area">
+                                            <img src="/img/bag.png" class="img-fluid" alt="">
+                                        </a>
+                                        <% }else{ %>
+                                            <form id="available" action="/available/<%= engine._id %>" method="POST">
+                                                <div class="ui labeled button" tabindex="0">
+                                                    <button type="submit">
+                                                        <i class="far fa-bell"></i>
+                                                        <%= engine.available %>
+                                                    </button>
+                                                </div>
+                                            <span class="available-text">در صورت موجود شدن به من خبر بده</span>
+                                            </form>
+                                            
+                                        <% } %>
+                                    </div>  
+                                    <a href="#" class="shop-area"></a>
+                                </div>
+                            </div>
+                            <% }); %>
+                        </div><!--row-->
+                        <%- include(viewPath('layouts/pagination') ,{ pagination : engines}) %>
+                            <% }else { %> 
+                                <div class="row">
+                                    <div class="col-12 col-md-12 text-center mr-5">
+                                        <div class="never alert alert-danger mt-5 mx-auto">
+                                            <p class="mt-1">محصولی یافت نشد.</p> 
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            <% } %>
+                    </div><!--box-area-->
+                </div>
+            </div>
+        </div><!--row-->
+        
+    </div>
+</section>
+
+<script>
+    var inputLeft = document.getElementById('input-left');
+    var inputRight = document.getElementById('input-right');
+
+    var thumbLeft = document.querySelector('.slider > .thumb.left');
+    var thumbRight = document.querySelector('.slider > .thumb.right');
+    var range = document.querySelector('.slider > .range');
+
+    function setLeftValue(){
+        var _this = inputLeft,
+        min = parseInt(_this.min),
+        max = parseInt(_this.max);
+
+        _this.value = Math.min(parseInt(_this.value),parseInt(inputRight.value) - 1);
+        var percent = ((_this.value - min) / (max - min)) * 100;
+        thumbLeft.style.left = percent + '%';
+        range.style.left = percent + '%';
+    }
+    setLeftValue();
+    function setRightValue(){
+        var _this = inputRight,
+        min = parseInt(_this.min),
+        max = parseInt(_this.max);
+
+        _this.value = Math.max(parseInt(_this.value),parseInt(inputLeft.value) + 1);
+        var percent = ((_this.value - min) / (max - min)) * 100;
+        thumbRight.style.right = (100 - percent) + '%';
+        range.style.right = (100 - percent) + '%';
+    }
+    setRightValue();
+    inputLeft.addEventListener('input', setLeftValue);
+    inputRight.addEventListener('input', setRightValue);
+</script>

@@ -1,0 +1,185 @@
+<% if (typeof cart !== "undefined"){ %>
+    <% var total = 0; %> 
+<section class="cart-box mt-4 mb-4">
+   
+    <div class="container t">
+        <div class="table-responsive">
+           
+            <table class="table product-table text-right mb-4">
+              <thead>
+                <tr>
+                  <th class="font-weight-bold t1">
+                    <i class="fas fa-caret-square-left"></i> سبد خرید شما 
+                  </th>
+                  <th class="font-weight-bold text-center">
+                    نام محصول
+                   </th>
+                  <th class="font-weight-bold text-center">
+                   قیمت
+                  </th>
+                  <th></th>
+                  <th class="font-weight-bold text-center">
+                    تعداد
+                  </th>
+                  <th></th>
+                  <th class="font-weight-bold text-center">
+                    مجموع
+                  </th>
+                  <th></th>
+                  <th class="font-weight-bold text-center">
+                    حذف
+                  </th>
+                 <th></th> 
+                </tr>
+              </thead>
+              <tbody>
+               
+                <% cart.forEach(function(engine){ %>
+                <% var sub = parseInt(engine.qty * engine.price) %> 
+                <% total += +sub %>
+                <tr>
+                  <th scope="row">
+                    <img src="/uploads/<%= engine.file %>" alt="" class="img-fluid">
+                    <td class="text-center">
+                        <div class="mt-5">
+                            <span><%= engine.title %></span>
+                        </div>
+                      </td>
+                    <td class="text-center">
+                        <% if(episodes){ %> 
+                            
+                                <div class="mt-5">
+                                    <span class="caro-11"><%= episode.notPrice %> تومان </span><span class="caro-22"><%= engine.price %></span>
+                                </div>
+                               
+                        <% }else { %> 
+                            <div class="mt-5">
+                                <span class="price-number">
+                                    <%= engine.price %> <span class="price-text"> تومان</span>
+                                </span>
+                            </div>
+                        <% } %>
+                      </td>
+                      <td></td>
+                      <td class="text-center">
+                        <div class="qty mt-5">
+                            <a href="/cart/update/<%= engine.title %>?action=add" class="btn btn-sm plus-card"><i class="fas fa-plus"></i></a>
+                            <span class="card-number"><%= engine.qty %></span>
+                            <a href="/cart/update/<%= engine.title %>?action=remove" class="btn btn-sm plus-minus"><i class="fas fa-minus"></i></a>
+                        </div>
+                      </td>
+                      <td></td>
+                      <td class="font-weight-bold mt-5 text-center">
+                        <div class="price-cart mt-5">
+                            <span class="price-number"><%= engine.price %> <span class="price-text">تومان</span></span>
+                        </div>
+                      </td>
+                      <td></td>
+                      <td class="text-center mt-5">
+                        <a href="/cart/update/<%= engine.title %>?action=clear" class="btn-delete mt-5" >X
+                        </a>
+                      </td>
+                  </th>
+                </tr>   
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+          <div class="container mb-4">
+            <div class="clear-item mt-3">
+                
+               <a href="#"> <span><i class="fas fa-trash"></i> خالی کردن سبد خرید </span></a>
+                
+            </div>
+        </div>
+        
+    </div>
+    
+    <br>
+    <section class="factor-cart mt-5 mb-3">
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                
+                <div class="col-12 col-md-9 col-lg-9 text-right align-items-center">
+                    <div class="factor-item">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <p class="mt-2">پیش فاکتور</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <a href="/vip">
+                                <div class="check">
+                                    <span class="check1">خرید با چک</span>
+                                    <span class="check2">محدودیت حداکثر تا 50 میلیون تومان</span>
+                                </div>
+                            </a>
+                                <p class="text-left mt-3"><a href="/coupon/coupon_text">کد تخفیف دارید؟</a></p>
+                            </div>
+                           
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        
+                        <div class="row">
+                            
+                
+                            <div class="col-6 col-md-6">
+                                <p class="mt-4">مجموع خرید شما</p>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                <p class="mt-4 factor-price"><%= total %> <span> تومان </span></p>
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-4 ft">تخفیف</p>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                
+                                <p class="mt-4 factor-ft"><%= episode.notPrice %> <span> تومان </span></p>
+                                
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-4">هزینه ارسال <span>(با توجه به میزان بار محاصبه میشود)</span></p>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                
+                                <p class="mt-4 factor-price">در ادامه ... </p>
+                                
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row d-flex justify-content-center align-items-center text-center">
+                            <div class="col-12 col-md-8">
+                                <div class="factor-send mt-5">
+                                    <p>قابل پرداخت</p>
+                                    <p><%= parseInt(total) %> <span>تومان</span></p> 
+                                    <p class="fun">(قابل شمارو هم نداره)</p>
+                                </div> 
+                                <div class="send-btn mt-5">
+                                    <a href="/cart/address"><i class="fas fa-play"></i> مرحله بعد </a>
+                                </div>
+                            </div> 
+                        </div><!--row-->
+                    </div>
+                </div>
+              
+            </div><!--row-->
+        </div>
+    </section>
+</section>
+<% }else{ %>
+           
+    <div class="col-12 text-center">
+        <div class="empty1 mt-5 mb-5">
+            <p>در حال حاضر سبد خرید شما خالی است</p>
+        </div>
+    </div>
+
+<% } %>

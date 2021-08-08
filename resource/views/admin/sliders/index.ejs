@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2>اسلایدر</h2>
+        <div class="btn-group">
+            <a href="/admin/sliders/create" class="btn btn-sm btn-primary">ایجاد اسلایدر</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th> تصویر اسلایدر</th>
+                <th>متن اسلایدر</th>
+                <th>تاریخ</th>
+                <th>تنظیمات</th>
+               
+            </tr>
+            </thead>
+            <tbody>
+                <% sliders.docs.forEach(slider =>{ %>
+                    <tr>
+                        <td><img src="/uploads/<%= slider.file %>" style="width: 200px;height: 150px;"></td>
+                        <td><%- slider.body %></td>
+                        <td><%= date(slider.createdAt).format('jD jMMMM jYYYY') %></td>
+                        <td>
+                            <form action="/admin/sliders/<%= slider._id %>?_method=DELETE" method="post">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="_token" value="Dso45XzqoXsAkRC8BBMQ63ZsOFS0c2tELkxR4i3Y">
+                                <div class="btn-group-sm">
+                                    <a href="/admin/sliders/<%= slider._id %>/edit"  class="btn btn-primary">ویرایش</a>
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    
+    

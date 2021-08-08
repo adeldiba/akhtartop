@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+    <h2>ویرایش محتوای بن تخفیف</h2>
+</div>
+<form class="form-horizontal" action="/admin/coupon_text/<%= coupon_text._id %>?_method=put" method="post">
+
+    <%- include(viewPath('layouts/error-messages')) -%>
+
+    <div class="form-group row">
+        <div class="col">
+            <label for="title" class="control-label font-weight-bold">عنوان خدمات</label>
+            <input type="text" class="form-control" name="title" value="<%= coupon_text.title %>" id="title">
+        </div>
+        <div class="col">
+            <label for="lang" class="control-label font-weight-bold font-weight-bold">زبان نمایشی</label>
+            <select name="lang" id="lang" class="form-control">
+                <option value="fa" <%= coupon_text.lang == 'fa' ? 'selected' : '' %> >زبان فارسی</option>
+                <option value="tr" <%= coupon_text.lang == 'tr' ? 'selected' : '' %>>زبان ترکی</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col">
+          <label for="body" class="control-label font-weight-bold">متن</label>
+          <textarea rows="5" class="form-control" name="body" id="body" placeholder="متن مقاله را وارد کنید">
+            <%= coupon_text.body %>
+          </textarea>
+      </div>
+    </div>
+
+    <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-danger">ارسال</button>
+            </div>
+        </div>
+</form>
+
+<link rel="stylesheet" href="/css/component-chosen.min.css">
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.6/chosen.jquery.min.js"></script>
+<script>
+    CKEDITOR.replace('body', {
+        filebrowserUploadUrl : '/admin/upload-image'
+    });   
+</script>

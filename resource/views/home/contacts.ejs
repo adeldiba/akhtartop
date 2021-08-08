@@ -1,0 +1,57 @@
+<section class="contact_area mt-5 mb-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="fallow_us">
+                    <% logo.forEach(logo => { %>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> <%= logo.phone %></li>
+                        <li><i class="fas fa-map-marker"></i> <%= logo.address %></li>
+                        <li><i class="fas fa-envelope"></i> <%= logo.email %></li>
+                    </ul>
+                    <% }); %>
+                </div>
+            </div>  
+            <div class="col-12 col-md-6 col-lg-6 text-right">
+                <div class="contact-us">
+                    <form action="/contacts" method="POST" name="f1">
+                        <%- include(viewPath('layouts/error-messages')) -%>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-group"> 
+                                    <input type="text" name="name" value="<%= old('name') %>" class="form-control" id="name" placeholder="نام و نام خانوادگی">
+                                </div> 
+                            </div> 
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="text" name="phone" value="<%= old('phone') %>" class="form-control" id="phone" placeholder="شماره تماس (فقط برای مدیر وبسایت قابل مشاهده است)">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input type="text" name="email" value="<%= old('email') %>" class="form-control" id="email" placeholder="ایمیل"> 
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <textarea class="form-control textarea" name="body" id="body" role="20" rows="10" placeholder="متن ارزشمند شما">
+                                        <%- old('body') %>
+                                    </textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <%- recaptcha %>
+                            </div>
+                        </div><!--row--> 
+                        <div class="row mt-3">
+                            <div class="col-12 col-md-12 text-left">
+                                <button type="submit" class="style-btn-3 color-2"> ارسال نظر <i class="fas fa-play"></i></button>
+                            </div>
+                        </div><!--row-->
+                    </form>
+                </div>
+            </div> 
+        </div><!--row-->
+    </div>  
+</section>

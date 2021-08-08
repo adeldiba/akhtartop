@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+     <h2>مشاهده آدرس</h2>
+    </div>
+    <div class="table-responsive">
+         <table class="table table-striped table-bordered">
+              <thead> <tr> <th>نام خریدار</th> <th>ایمیل </th> <th>شماره تلفن</th> </tr></thead>
+               <tbody> <tr> <td><%=payment.user.name %></td><td><%=payment.user.email %></td>
+                <td><%=payment.user.phone %></td></tr></tbody> </table><br>
+                <table class="table table-striped table-bordered"> <thead>
+                     <tr> <th>آدرس کلی</th> </tr></thead> 
+                     <tbody>
+                         <% var pro=payment.proAddress %>
+                         <% var add=JSON.stringify(pro); %>
+    <tr> <td><%= add %></td></tr></tbody>
+        
+    </table> </div>

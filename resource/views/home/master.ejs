@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | وبسایت فروشگاهی آختارتاپ</title>
+    <link rel="shortcut icon" href="https://akhtartop.com/public/img/favicon.ico" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="alternate" type="application/rss+xml" title="فید خوان وبسایت فروشگاهی آختارتاپ " href="/feed/engines">
+    <meta name="google-site-verification" content="Gkv2XRjpGkJiEEaZq09oMNKAoO31WLi4L_FdDlEoKXQ">
+    <meta name="keywords" content="<%= title %>,
+    ایوکو,لوازم یدکی ایوکو,
+    ,اختارتاپ,لوازم یدکی خودرو, لوازم یدکی, محصولات موتور, محصولات
+    ">
+    <meta name="description" content="<%= key %>">
+    <meta name="generator" content="akhtartop">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="آختارتاپ">
+    <meta property="og:description" content="<%= key %>">
+    <meta property="og:url" content="https://akhtartop.com">
+    <meta property="og:site_name" content="وبسایت فروشگاهی آختارتاپ">
+    <meta property="og:brand" content="آختارتاپ">
+    <meta property="og:locale" content="fa,tr">
+    <meta property='og:image' content='https://akhtartop.com/img/akhtar_top.png'>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FQSQPDCDWJ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    gtag('config', 'G-FQSQPDCDWJ');
+</script>
+    <!--Link Bootstrap and Style-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <% if(req.getLocale() == 'fa'){ %> 
+        <link rel="stylesheet" href="/css/appOne.css">
+    <% }else if(req.getLocale() == 'tr'){ %>
+        <link rel="stylesheet" href="/css/appOne_tr.css">
+    <% } %>
+    <link rel="stylesheet" href="/css/media.css">
+    
+    <%- style %>
+    <!--End Link Bootstrap and Style-->
+</head>
+<body>
+    <header class="header-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="row">
+                        <div class="col-4 col-md-5 col-lg-5">
+                            <% logo.forEach(logo => { %>
+                            <div class="logo mt-3">
+                                <a href="/">
+                                <img src="/uploads/<%= logo.file %>" class="img-fluid" alt="logo">
+                            </a>
+                            </div>
+                            <% }); %>
+                        </div>
+                        <div class="col-4 col-md-4">
+                            <% logo.forEach(logo => { %>
+                            <div class="ph mt-4 ">
+                                <img src="/img/phone.png" class="img-fluid align-items-center" alt="">
+                                <span class="mt-2"><%= logo.phone %></span>
+                            </div>
+                            <% }); %>
+                        </div>
+                        <div class="col-4 col-md-3">
+                            <div class="contry mt-4">
+                                <% if(req.getLocale() == 'fa'){  %>  
+                                <a href="/lang/tr">
+                                    <img src="/img/turkey.png" class="img-fluid" alt="">
+                                </a>
+                                <% }else if(req.getLocale() == 'tr') { %>
+                                <a href="/lang/fa">
+                                    <img src="/img/iran.png" class="img-fluid" alt="">
+                                </a>
+                                <% }; %>
+                                <!--<div class="slideOne">
+                                    	
+                                    <input id="toggle" class="" type="checkbox">
+                                    <label for="toggle"></label>
+                                </div>-->
+                            </div>
+                        </div>
+                </div><!--row-->
+                </div>
+                <div class="col-12 col-md-5 col-lg-5 justify-content-center">
+                    <div class="search_box mt-4">
+                       <form action="/engines" method="GET">
+                           <div class="inner-form">
+                               <div class="input-field">
+                               <input autofocus autocomplete="false" type="text" name="search" id="search" placeholder="محصول مورد نظر خود را بگرد و پیدا کن :">
+                               <div class="icon-wrap">
+                                <button type="submit">
+                                    <img src="/img/search.png" width="24" height="24">
+                                </button>
+                               </div>
+                            </div>
+                            <ul class="list-group" id="list"></ul>
+                           </div>
+                       </form> 
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3 justify-content-center">
+                    <div class="cart-box">
+                        <a class="mt-1" href="/cart">سبد خرید
+                        
+                            <% if (typeof cart !== "undefined") { %>
+                                <span><%= cart.length %></span>
+                                <% } else { %> 
+                                    <span>خالی</span>
+                                <% } %>
+                           
+                        <i class="fas fa-shopping-bag pull-left"></i>
+                    </a>
+                    </div>
+                </div>
+            </div><!--row-->
+        </div>
+    </header>
+    <header class="header_2">
+        <div class="container">
+        <nav class="navbar navbar-expand-lg rounded">
+            
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link <%= req.url == '/' ? 'active' : '' %>" href="/">صفحه نخست
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown menu-area dmenu">
+                            <a class="nav-link dropdown-toggle " id="mega-one" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" href="#">دسته بندی محصولات <i class="fas fa-caret-down"></i></a>
+                           
+                        <div class="dropdown-menu mega-area sm-menu" aria-labelledby="mega-one">
+                           
+                            <div class="row text-right">
+                                <% categories.forEach(category => { %> 
+                                    <div class="col-5 col-md-2">
+                                      
+                                        <h4><i class="fas fa-caret-down"></i> <a href="/engines?category=<%= category.slug %>"> <%= category.name %> </a></h4>
+                                        <% if(category.childs){ %> 
+                                            <% category.childs.forEach(cate => { %>
+                                                <a href="/engines?category=<%= cate.slug %>" class="dropdown-item"> <%= cate.name %> </a>
+                                           <% }); %>
+                                        
+                                        <% } %> 
+                                    </div>
+                                    <% }); %>
+                                
+                            </div><!--row-->
+                            
+                            <div class="row">
+                                <div class="col-12 col-md-12 text-center">
+                                    <div class="icon-dropdown mt-3">
+                                        <i class="fas fa-angle-up"></i>
+                                        <div class="border-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                           
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects" data-offset="90">فروشگاه های عرضه مستقیم <i class="fas fa-caret-down"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-offset="90">درخواست متخصص فنی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-offset="30">اخذ نمایندگی فروش</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link cl <%= req.url == '/contacts' ? 'active' : '' %>" href="/contacts" data-offset="90">پشتیبانی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link cl <%= req.url == '/about_us' ? 'active' : '' %>" href="/about_us" data-offset="90">درباره ما</a>
+                        </li>
+                    </ul>
+                    <!-- Social User  -->
+                    <div class="social-user">
+                        <% if(auth.check) { %> 
+                            <a class="<%= req.url == '/user/panel' ? 'active' : '' %>" href="/user/panel ">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+                                    <title>@1xIconly/Bulk/Profile</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <g id="Iconly/Bulk/Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Profile" transform="translate(3.000000, 2.000000)" fill="#200E32" fill-rule="nonzero">
+                                            <ellipse id="Ellipse_744" opacity="0.400000006" cx="9.00012826" cy="5.55555556" rx="5.62508016" ry="5.55555556"/>
+                                            <path d="M17.9902354,16.6757991 L17.9902354,16.6757991 C17.9953097,16.5967226 17.9953097,16.5174327 17.9902354,16.4383562 C17.9679741,16.1461262 17.885058,15.8607505 17.7461199,15.5981735 C17.1993012,14.5296804 15.6662559,14.0456621 14.3870907,13.7716895 C13.4744565,13.5817014 12.5471782,13.4595545 11.6139387,13.4063927 L10.6374767,13.3333333 L10.1980688,13.3333333 L9.6512501,13.3333333 L8.34279105,13.3333333 L7.79597234,13.3333333 L7.35656445,13.3333333 L6.38010248,13.4063927 C5.44686291,13.4595545 4.51958466,13.5817014 3.60695046,13.7716895 C2.32778527,14.0091324 0.794739971,14.5022831 0.247921264,15.5981735 C0.10898315,15.8607505 0.0260670984,16.1461262 0.00380576968,16.4383562 C-0.00126858989,16.5174327 -0.00126858989,16.5967226 0.00380576968,16.6757991 L0.00380576968,16.6757991 C-0.000879294659,16.7548861 -0.000879294659,16.834155 0.00380576968,16.913242 C0.0303656032,17.2029741 0.116574533,17.4851701 0.257685884,17.7442922 C0.804504591,18.8127854 2.33754989,19.2968037 3.61671508,19.5707763 C4.53104892,19.7518719 5.45762024,19.8739256 6.3898671,19.9360731 L7.36632907,20 L7.60067995,20 L7.80573696,20 L10.2078334,20 L10.4128904,20 L10.6472413,20 L11.6237033,19.9360731 C12.5559501,19.8739256 13.4825215,19.7518719 14.3968553,19.5707763 C15.6760205,19.3242009 17.2090658,18.8401826 17.7558845,17.7442922 C17.890425,17.4769528 17.9730826,17.1893744 18,16.8949772 C18.0012406,16.8218031 17.9979804,16.748623 17.9902354,16.6757991 Z" id="Path_34198"/>
+                                        </g>
+                                    </g>
+                                </svg> <span>پروفایل شخصی</span>
+                            </a> 
+                              
+                        <% }else{ %> 
+                            <a class="<%= req.url == '/auth/login' ? 'active' : '' %>" href="/auth/login">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+                                    <g id="Iconly/Bulk/Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="Profile" transform="translate(3.000000, 2.000000)" fill="#200E32" fill-rule="nonzero">
+                                            <ellipse id="Ellipse_744" opacity="0.400000006" cx="9.00012826" cy="5.55555556" rx="5.62508016" ry="5.55555556"/>
+                                            <path d="M17.9902354,16.6757991 L17.9902354,16.6757991 C17.9953097,16.5967226 17.9953097,16.5174327 17.9902354,16.4383562 C17.9679741,16.1461262 17.885058,15.8607505 17.7461199,15.5981735 C17.1993012,14.5296804 15.6662559,14.0456621 14.3870907,13.7716895 C13.4744565,13.5817014 12.5471782,13.4595545 11.6139387,13.4063927 L10.6374767,13.3333333 L10.1980688,13.3333333 L9.6512501,13.3333333 L8.34279105,13.3333333 L7.79597234,13.3333333 L7.35656445,13.3333333 L6.38010248,13.4063927 C5.44686291,13.4595545 4.51958466,13.5817014 3.60695046,13.7716895 C2.32778527,14.0091324 0.794739971,14.5022831 0.247921264,15.5981735 C0.10898315,15.8607505 0.0260670984,16.1461262 0.00380576968,16.4383562 C-0.00126858989,16.5174327 -0.00126858989,16.5967226 0.00380576968,16.6757991 L0.00380576968,16.6757991 C-0.000879294659,16.7548861 -0.000879294659,16.834155 0.00380576968,16.913242 C0.0303656032,17.2029741 0.116574533,17.4851701 0.257685884,17.7442922 C0.804504591,18.8127854 2.33754989,19.2968037 3.61671508,19.5707763 C4.53104892,19.7518719 5.45762024,19.8739256 6.3898671,19.9360731 L7.36632907,20 L7.60067995,20 L7.80573696,20 L10.2078334,20 L10.4128904,20 L10.6472413,20 L11.6237033,19.9360731 C12.5559501,19.8739256 13.4825215,19.7518719 14.3968553,19.5707763 C15.6760205,19.3242009 17.2090658,18.8401826 17.7558845,17.7442922 C17.890425,17.4769528 17.9730826,17.1893744 18,16.8949772 C18.0012406,16.8218031 17.9979804,16.748623 17.9902354,16.6757991 Z" id="Path_34198"/>
+                                        </g>
+                                    </g>
+                                </svg> <span>ورود</span>
+                            </a>
+                            /
+                            <a class="<%= req.url == '/auth/register/mobile' ? 'active' : '' %>" href="/auth/register/mobile">
+                                <span>ثبت نام</span>
+                            </a>
+                        <% } %>
+                    </div>
+                </div>
+            
+        </nav>
+    </div>
+    </header>
+
+    <%- body %>
+
+<!--footer-->
+<section class="send-box mt-5 mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3 mb-4 text-center">
+                <div class="send-item col-border">
+                    <img src="/img/contact-us.png" class="img-fluid" alt="">
+                    <p>پشتیبانی شبانه روزی</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 mb-4 text-center">
+                <div class="send-item col-border">
+                    <img src="/img/patent.png" class="img-fluid" alt="">
+                    <p>ظمانت اصل بودن کالا</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 mb-5 text-center">
+                <div class="send-item col-border">
+                    <img src="/img/card.png" class="img-fluid" alt="">
+                    <p>پرداخت در محل <span>(فعلا تبریز)</span></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 text-center">
+                <div class="send-item">
+                    <img src="/img/delivery-truck.png" class="img-fluid" alt="">
+                    <p>تحویل اکسپرس</p>
+                </div>
+            </div>
+        </div><!--row-->
+        <div class="row">
+            <div class="introduction text-right mt-5">
+                <h1><%= __('title') %></h1>
+                <h1>آختارتاپ به عنوان یک فروشگاه اینترنتی</h1>
+                <p> سعی کرده تا بهترین امکانات و اصلی ترین لوازم کامیون های ایویکو را در اختیار مشتریان و شرکت های حمل و نقل قرار بدهد در آختار تاپ سعی میشود تأمین قطعات یدکی با قیمتی ارزان‌تر و به دور از واسطه در اختیار مصرف کننده قرار گیرد. شفافیت فرآیند خرید، قابل ردیابی بودن سفارش، امکان پرداخت در محل، ارسال سریع و سایر خدمات ما باعث شده تاخدمات مدنظر سریع‌تر و با اطمینان بیشتری نسبت به بازار سنتی در اختیار مشتری نهایی قرار گیرد.ولی همواره منتظر شنیدن پیشنهادات شما کاربران عزیز جهت ارتقا و بهبود ارائه خدمات در بخش‌های مختلف هستیم</p>
+            </div>
+        </div><!--row-->
+    </div>
+</section>
+<footer class="footer mt-5">
+   <div class="container">
+       <div class="row">
+           <div class="col-12 col-md-3 col-lg-3 text-center border-c">
+               <div class="footer-item mt-3 mb-3">
+                   <h4>خدمات مشتریان</h4>
+                   <ul>
+                       <li>
+                           <a href="/response">پاسخ به پرسش های متداول</a>
+                       </li>
+                       <li>
+                            <a href="/return_procedure">رویه بازگرداندن کالا</a>
+                        </li>
+                        <li>
+                            <a href="/website_Usage_Guide">راهنمای استفاده از سایت</a>
+                        </li>
+                   </ul>
+               </div>
+           </div>
+           <div class="col-12 col-md-3 col-lg-3 text-center border-c">
+            <div class="footer-item mt-3 mb-3">
+                <h4>درباره تیم آختارتاپ</h4>
+                <ul>
+                    <li>
+                        <a href="#">درباره ما</a>
+                    </li>
+                    <li>
+                         <a href="#">تماس با ما</a>
+                     </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4 mb-4 text-center">
+            <div class="footer-item mt-3">
+                <h4>ثبت نام در خبرنامه آختارتاپ</h4>
+                <p class="text-right">برای اطلاع از جــدیدترین محصـولات و تـخفیف های سـایـت لطفا در خبرنامه ما عضو شده و مارا در شبکه‌های ارتباطی موجود دنبال بکنید</p>
+                
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="شماره تماس">
+                        <span class="input-group-btn">
+                        <button class="btn-n" type="submit"> عضویت <i class="fas fa-caret-square-left"></i></button>
+                        </span>
+                    </div> 
+            </div>
+        </div>
+        <div class="col-12 col-md-2 col-lg-2">
+            <div class="footer-item text-center">
+                <img src="/img/akhtar_top.png" class="img-fluid" alt="">
+                <div class="icon-fallow mt-3 text-center">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+       </div><!--row-->
+   </div> 
+   <div class="footer-end mt-5">
+       <div class="container">
+       <div class="row">
+           <div class="col-12">
+            <div class="text-end text-center">
+                <span>تمام حقوق این وبسایت برای آختارتاپ محفوظ است</span>
+            </div>
+        </div>
+       </div><!--row-->
+    </div>
+   </div>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/provinces.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="/js/appOne.js"></script>
+
+<% let sweetalert = req.flash('sweetalert')
+if(sweetalert.length) {
+  let data = sweetalert[0]; %>
+  <script>
+    Swal.fire({
+      title: '<%= data.title %>',
+      text: '<%= data.message %>',
+      icon: '<%= data.icon %>',
+      showConfirmButton: <%= data.button !== null ? true : false %>,
+      confirmButtonText: '<%= data.button %>',
+      timer : <%= data.button !== null ? 'null' : data.timer %>,
+    })
+  </script>
+<% } %>
+
+<%- script %>
+</body>
+</html>

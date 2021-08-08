@@ -1,0 +1,49 @@
+<div class="col-sm-12 col-md-10">
+    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+        <h2>ایجاد کاربر جدید</h2>
+    </div>
+</div>
+<div class="col-sm-12 col-md-2">
+    <div class="text-left">
+        <a href="/admin/users" class="btn btn-info">بازگشت</a>
+    </div>
+</div>
+</div><!--row-->
+
+<div class="limiter">
+    <div class="container-register100">
+        <div class="wrap-login100">
+            <form method="Post" action="/admin/users" class="login100-form validate-form flex-sb flex-w">
+                <span class="login100-form-title">
+                    عضویت
+                </span>
+                <%- include(viewPath('layouts/error-messages')) -%>
+                <input type="hidden" name="_csrf" value="<%= req.csrfToken() %>">
+                <div class="wrap-input100 validate-input" data-validate = "Username is required">
+                        <input class="input100" type="text" name="name" id="name" value="<%= old('name') %>" placeholder="نام و نام خانوادگی ...">
+                        <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Username is required">
+                        <input class="input100" type="number" name="phone" id="" value="<%= old('phone') %>" placeholder="شماره موبایل ...">
+                        <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Username is required">
+                    <input class="input100" type="text" name="email" id="email" value="<%= old('email') %>" placeholder=" آدرس ایمیل ...">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                    <input class="input100" type="password" name="password" id="password" placeholder=" کلمه عبور ...">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="container-register100-form-btn">
+                    <button class="register100-form-btn ">
+                        عضویت
+                    </button>
+                    
+                </div>
+            </form>
+            
+        </div>
+    </div>
+</div>

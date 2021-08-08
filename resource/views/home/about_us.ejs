@@ -1,0 +1,14 @@
+<div class="about_us mt-4">
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-12 col-md-12 col-lg-12 text-right">
+                <% abouts.forEach(about => { %>
+                <div class="about_item">
+                    <h2><%= about.title %></h2>
+                    <p><%- about.body %></p>
+                </div>
+                <% }); %>
+            </div>
+        </div><!--row-->
+    </div>
+</div>

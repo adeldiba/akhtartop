@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2>محتواهای رویه باز گرداندن کالا</h2>
+        <div class="btn-group">
+            <a href="/admin/return_p/create" class="btn btn-sm btn-primary">ایجاد محتوای رویه باز گرداندن</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th> نام محتوا</th>
+                <th>تاریخ</th>
+                <th>تنظیمات</th>
+               
+            </tr>
+            </thead>
+            <tbody>
+                <% return_p.forEach(return_p =>{ %>
+                    <tr>
+                        <td><%= return_p.title %></td>
+                        <td><%= date(return_p.createdAt).format('jD jMMMM jYYYY') %></td>
+                        <td>
+                            <form action="/admin/return_p/<%= return_p._id %>?_method=DELETE" method="post">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="_token" value="Dso45XzqoXsAkRC8BBMQ63ZsOFS0c2tELkxR4i3Y">
+                                <div class=" btn-group-sm">
+                                    <a href="/admin/return_p/<%= return_p._id %>/edit"  class="btn btn-primary">ویرایش</a>
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    
+    

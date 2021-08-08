@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%- defineContent('title') || 'پنل مدیریت'  %></title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-rtl.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="/css/idd-zoom.css">
+    <link rel="stylesheet" href="/css/vazir.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    
+    <%- style %>
+</head>
+<body>
+  <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+    <a class="navbar-brand col-sm-12 col-md-2 mr-0" href="/">وبسایت فروشگاهی آختارتاپ</a>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="جستجو" aria-label="Search">
+    <ul class="navbar-nav px-3">
+      <li class="nav-item text-nowrap">
+        <a class="nav-link" href="#">خروج</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      
+        <main role="main" class="col-md-9 mr-sm-auto col-lg-10 pt-3 px-4">
+            <%- body %>
+        </main>
+
+        <nav class="col-sm-12 col-md-2 d-none d-md-block bg-light sidebar">
+            
+          <div class="sidebar-sticky">
+              
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="/admin">
+                  <i class="fas fa-home"></i>
+                  داشبورد
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/courses">
+                  <span data-feather="file"></span>
+                  دوره ها
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/shoppings">
+                  <i class="fas fa-shopping-cart"></i>
+                  سفارشات
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/devices">
+                  <i class="fas fa-certificate"></i>
+                  دسته بندی نوع دستگاه
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/categories">
+                  <i class="fas fa-certificate"></i>
+                  دسته بندی قطعات
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/brands">
+                  <i class="fas fa-copyright"></i>
+                  برند ها
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/engines">
+                  <i class="fas fa-truck-moving"></i>
+                  لوازم یدکی ماشین 
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/brands">
+                  <i class="fas fa-certificate"></i>
+                  برند ها
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/countries">
+                  <i class="fas fa-certificate"></i>
+                  کشور سازنده
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/specials">
+                  <span data-feather="shopping-cart"></span>
+                  فروش ویژه
+                </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/admin/logo">
+                    <i class="fas fa-atom"></i>
+                    مشخصات وبسایت
+                  </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/sliders">
+                      <i class="fas fa-sliders-h"></i>
+                      اسلایدر
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/services">
+                      <span data-feather="shopping-cart"></span>
+                      خدمات مشتریان
+                    </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/response">
+                    <span data-feather="shopping-cart"></span>
+                    پاسخ به پرسش های متداول
+                  </a>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/admin/informations">
+                    <i class="fas fa-clone"></i>
+                    اطلاعات آختارتاپ
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/checks">
+                  <i class="fas fa-clone"></i>
+                  تایید چک کاربر
+                </a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/messages">
+                  <i class="fas fa-clone"></i>
+                  پیغام به کاربران وبسایت
+                </a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/technicals">
+                  <span data-feather="shopping-cart"></span>
+                  در خواست متخصص فنی
+                </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/sellers">
+                <span data-feather="shopping-cart"></span>
+                فروشنده شوید
+              </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/vip_reg">
+              <i class="fas fa-user"></i>
+              ساختن کد ویژه
+            </a>
+          </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/users">
+                  <i class="fas fa-user"></i>
+                  کاربران وبسایت
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/userAddress">
+                  <i class="fas fa-user"></i>
+                  آدرس کاربران در وبسایت
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/about_us">
+                  <i class="fas fa-user"></i>
+                  درباره ما
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/return_p">
+                  <i class="fas fa-user"></i>
+                  رویه بازگرداندن کالا
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/coupon_text">
+                  <i class="fas fa-user"></i>
+                  محتوای بن تخفیف
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/guides">
+                  <i class="fas fa-user"></i>
+                  راهنمای استفاده از وبسایت
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/videos">
+                  <i class="fas fa-user"></i>
+                  آپلود ویدیو
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/articles">
+                  <i class="fas fa-user"></i>
+                  محتوای کد مشتری ویژه
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/vendors">
+                  <i class="fas fa-user"></i>
+                  مرکز فروشندگان
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/availables">
+                  <i class="fas fa-comments"></i>
+                  خبر موجود بودن محصول
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/contacts">
+                  <i class="fas fa-comments"></i>
+                  پیام کاربران
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/admin/comments">
+                  <i class="fas fa-comments"></i>
+                  نظرات
+                </a>
+              </li>
+            </ul>
+            
+          </div>
+        </nav>
+    </div>
+  </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="/js/zoomsl.js"></script>
+    <script src="/js/idd-zoom.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <script src="/js/holder.min.js"></script>
+
+    <!-- Icons -->
+    <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+    <script>
+      feather.replace()
+    </script>
+    <script>
+      function readURL(input){
+          if (input.files && input.files[0]){
+              var reader = new FileReader();
+  
+              reader.onload = function(e){
+                 $('#imgPreview').attr('src', e.target.result).width(200).height(200); 
+              }
+  
+              reader.readAsDataURL(input.files[0]);
+          }
+      }
+  
+      $("#img").change(function(){
+          readURL(this);
+      });
+  
+  </script>
+  
+    <%- script %>
+</body>
+</html> 

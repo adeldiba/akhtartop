@@ -1,0 +1,56 @@
+<section class="profile-area mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3 text-right">
+                <%- include(viewPath('home/panel/aside')); %>
+            </div>
+            <div class="col-12 col-md-9 col-lg-9 text-right">
+                <div class="profile-left pt-3">
+                    <div class="profile-title">
+                        <h4>نظرات</h4>
+                    </div>
+                    <div class="comment_item mt-5">
+                        <% if(comments.length){ %> 
+                        <% comments.forEach(comment => { %>
+                        <div class="row">
+                            <div class="col-12 col-md-12">
+                                <p>متن دیدگاه شما :</p>
+                                <div class="comment-answer">
+                                    <h3><%= comment.user.name %></h3>
+                                    <span class="comments-date"> <%= date(comment.createdAt).fromNow() %></span>
+                                    <div class="comments-text">
+                                        <p><%- comment.comment %></p>
+                                    </div>
+                                </div>
+                                <p>پاسخ به دیدگاه شما</p>
+                                <div class="comment-admin">
+                                 
+                                    <% comment.comments.forEach(comment => { %>
+                                         
+                                        <span class="name-comments"><%= comment.user.name %></span><br>
+                                        <span class="comments-date"> <%= date(comment.createdAt).fromNow() %> </span>
+                                        <div class="comments-text">
+                                            <p><%- comment.comment %></p>
+                                        </div>
+                                        
+                                        <% }) %>
+                                        
+                                    </div>
+                            </div>
+                        </div><!--row-->
+                        <hr>
+                    <% }) %>
+                    <% }else{ %> 
+                        <div class="row">
+                            <div class="comment-empty text-center mx-auto">
+                                <p>نظری ثبت نشده است.</p>
+                            </div>
+                        </div>
+                    <% } %>
+                    </div>
+
+                </div><!--profile-left-->
+            </div>
+        </div><!--row-->
+    </div>
+</section>

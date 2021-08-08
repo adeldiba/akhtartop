@@ -1,0 +1,14 @@
+<section class="response mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 text-right">
+                <% responses.forEach(response => { %>
+                <div class="response_item">
+                    <h2><%= response.title %></h2>
+                    <p><%- response.body %></p>
+                </div>
+                <% }); %>
+            </div>
+        </div><!--row-->
+    </div>
+</section>

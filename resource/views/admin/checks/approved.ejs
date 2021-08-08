@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2>چک های تایید نشده</h2>
+        <div class="btn-group">
+            <a href="/admin/checks" class="btn btn-sm btn-primary">چک های تایید شده</a>
+        </div>
+    </div>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <style>
+        #example {
+              box-shadow: 0 3px 5px #888;
+              height: 200px;
+            }
+            </style>
+    
+    <% checks.docs.forEach(check => { %> 
+        <div class="dirc">
+            <div class="container">
+            <div class="row"> 
+                <div class="col-12 col-md-4 mt-5 text-right">
+                    <img id="example" src="/uploads/<%= check.file %>">
+                </div>
+            
+                <div class="col-12 col-md-4 available_u mt-5 text-right">
+                    <p>نام کاربر : <span><%= check.user.name %></span></p>
+                    <p>شماره همراه : <span><%= check.user.phone %>099999999</span></p>
+                    <p>ایمیل : <span><%= check.user.email %></span></p>
+                    
+                </div>
+                <div class="col-12 col-md-4 mt-5">
+                    <div class="d-flex">
+                        <form action="/admin/checks/<%= check.id %>/approved?_method=PUT" method="post">
+                           
+                            <button type="submit" class="btn btn-sm btn-success ml-2">تایید شد</button>
+                        </form>
+                        <form action="/admin/checks/<%= check.id %>/approvedd?_method=PUT" method="post">
+                            
+                            <button type="submit" class="btn btn-sm btn-danger">تایید نشد</button>
+                        </form>
+                </div>
+                </div>
+                <%- include(viewPath('layouts/pagination') ,{ pagination : checks}) %>
+            </div>
+        </div>
+        </div>
+        <% }); %>
+<script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<script src="/js/src/okzoom.js"></script>
+        
+<script>
+    $(function(){
+          $('#example').okzoom({
+            width: 200,
+            height: 200,
+            border: "1px solid black",
+            shadow: "0 0 5px #000"
+          });
+        });
+    </script>
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-36251023-1']);
+      _gaq.push(['_setDomainName', 'jqueryscript.net']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+    
+    

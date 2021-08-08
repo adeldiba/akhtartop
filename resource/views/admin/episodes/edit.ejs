@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+        <h2>ویرایش مصول ویژه</h2>
+    </div>
+    <form class="form-horizontal" action="/admin/episodes/<%= episode._id %>?_method=put" method="post">
+    
+        <%- include(viewPath('layouts/error-messages')) -%>
+    
+        <div class="form-group row">
+            <div class="col">
+                <label for="discount" class="control-label font-weight-bold">تعیین مقدار تخفیف. مثال 20%</label>
+                <input type="text" class="form-control" name="discount" id="discount" placeholder="مقدار تخفیف را وارد کنید" value="<%= old('discount', episode.discount) %>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <label for="engine" class="control-label font-weight-bold font-weight-bold">دوره مربوطه</label>
+                <select name="engine" id="engine" class="form-control">
+                    <% engines.forEach(engine => { %> 
+                        <option value="<%= engine._id %>" <%= String(old('engine', episode.engine)) == String(engine._id) ? 'selected' : '' %> ><%= engine.title %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="col">
+                <label for="notPrice" class="control-label font-weight-bold">قیمت قبلی محصول</label>
+                <input type="text" class="form-control" onkeyup="javascript:this.value=separate(this.value)" name="notPrice" id="notPrice" value="<%= old('notPrice', episode.notPrice) %>" placeholder="این قیمت با رنگ قرمز و یک خط روی آن در وبسایت نمایش داده میشود.">
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-info">ویرایش</button>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function separate(Number) 
+    {
+            Number+= '';
+            Number= Number.replace(',', '');
+            x = Number.split('.');
+            y = x[0];
+            z= x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(y))
+            y= y.replace(rgx, '$1' + ',' + '$2');
+            return y+ z;
+            }
+    
+    </script>
+    
+    

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- defineContent('title') %> || وبسایت فروشگاهی آختارتاپ</title>
+
+    <!--Link Bootstrap and Style-->
+    <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap-rtl.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap-grid.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/bootstrap-reboot.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/appOne.css">
+    <link rel="stylesheet" href="/css/media.css">
+    <!--End Link Bootstrap and Style-->
+</head>
+<body>
+    <header class="header-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="row">
+                        <div class="col-4 col-md-5 col-lg-5">
+                            <div class="logo mt-3">
+                                <a href="/">
+                                <img src="/img/akhtar_top.png" class="img-fluid" alt="logo">
+                            </a>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-4">
+                            <div class="ph mt-4 ">
+                                <img src="/img/phone.png" class="img-fluid align-items-center" alt="">
+                                <span class="mt-2">09037670927</span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-md-3">
+                            <div class="contry mt-4">
+                                <img src="/img/turkey.png" class="img-fluid" alt="">
+                                <div class="slideOne">
+                                    	
+                                    <input id="toggle" class="" type="checkbox">
+                                    <label for="toggle"></label>
+                                </div>
+                            </div>
+                        </div>
+                </div><!--row-->
+                </div>
+                <div class="col-12 col-md-5 col-lg-5 justify-content-center">
+                    <div class="search_box mt-4">
+                       <form>
+                           <div class="inner-form">
+                               <div class="input-field">
+                               <input type="text" id="search" placeholder="محصول مورد نظر خود را بگرد و پیدا کن :">
+                               <div class="icon-wrap">
+                                <img src="/img/search.png" width="24" height="24" >
+                               </div>
+                            </div>
+                           </div>
+                       </form> 
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3 justify-content-center">
+                    <div class="cart-box mt-4">
+                        <a href="#">سبد خرید
+                        <span>خالی</span>
+                        <i class="fas fa-shopping-bag"></i>
+                    </a>
+                    </div>
+                </div>
+            </div><!--row-->
+        </div>
+    </header>
+    <header class="header_2">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span><i class="fas fa-bars"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">صفحه نخست
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-offset="90">دسته بندی محصولات <i class="fas fa-caret-down"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects" data-offset="90">فروشگاه های عرضه مستقیم <i class="fas fa-caret-down"></i></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery" data-offset="90">درخواست متخصص فنی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#testimonials" data-offset="30">اخذ نمایندگی فروش</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link cl" href="#articles" data-offset="90">پشتیبانی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link cl" href="#contact" data-offset="90">درباره ما</a>
+                        </li>
+                    </ul>
+                    <!-- Social User  -->
+                    <div class="social-user">
+                        <% if(auth.check) { %> 
+                            <a href="/user-panel">
+                                <i class="fas fa-user"></i><span>پنل کاربری</span>
+                            </a> 
+                            <a href="/logout">
+                                <span>خروج</span>
+                            </a>    
+                        <% }else{ %> 
+                            <a href="/auth/login">
+                                <i class="fas fa-user"></i><span>ورود</span>
+                            </a>
+                            /
+                            <a href="/auth/register">
+                                <span>ثبت نام</span>
+                            </a>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <%- body %>
+
+<!--footer-->
+<section class="send-box mt-5 mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3 mb-4 text-center">
+                <div class="send-item col-border">
+                    <img src="/img/contact-us.png" class="img-fluid" alt="">
+                    <p>پشتیبانی شبانه روزی</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 mb-4 text-center">
+                <div class="send-item col-border">
+                    <img src="/img/patent.png" class="img-fluid" alt="">
+                    <p>ظمانت اصل بودن کالا</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 mb-5 text-center">
+                <div class="send-item col-border">
+                    <img src="/img/card.png" class="img-fluid" alt="">
+                    <p>پرداخت در محل <span>(فعلا تبریز)</span></p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 col-lg-3 text-center">
+                <div class="send-item">
+                    <img src="/img/delivery-truck.png" class="img-fluid" alt="">
+                    <p>تحویل اکسپرس</p>
+                </div>
+            </div>
+        </div><!--row-->
+        <div class="row">
+            <div class="introduction text-right mt-5">
+                <h1>آختارتاپ به عنوان یک فروشگاه اینترنتی</h1>
+                <p> سعی کرده تا بهترین امکانات و اصلی ترین لوازم کامیون های ایویکو را در اختیار مشتریان و شرکت های حمل و نقل قرار بدهد در آختار تاپ سعی میشود تأمین قطعات یدکی با قیمتی ارزان‌تر و به دور از واسطه در اختیار مصرف کننده قرار گیرد. شفافیت فرآیند خرید، قابل ردیابی بودن سفارش، امکان پرداخت در محل، ارسال سریع و سایر خدمات ما باعث شده تاخدمات مدنظر سریع‌تر و با اطمینان بیشتری نسبت به بازار سنتی در اختیار مشتری نهایی قرار گیرد.ولی همواره منتظر شنیدن پیشنهادات شما کاربران عزیز جهت ارتقا و بهبود ارائه خدمات در بخش‌های مختلف هستیم</p>
+            </div>
+        </div><!--row-->
+    </div>
+</section>
+<footer class="footer mt-5">
+   <div class="container">
+       <div class="row">
+           <div class="col-12 col-md-3 col-lg-3 text-center border-c">
+               <div class="footer-item mt-3 mb-3">
+                   <h4>خدمات مشتریان</h4>
+                   <ul>
+                       <li>
+                           <a href="#">پاسخ به پرسش های متداول</a>
+                       </li>
+                       <li>
+                            <a href="#">رویه بازگرداندن کالا</a>
+                        </li>
+                        <li>
+                            <a href="#">راهنمای استفاده از سایت</a>
+                        </li>
+                   </ul>
+               </div>
+           </div>
+           <div class="col-12 col-md-3 col-lg-3 text-center border-c">
+            <div class="footer-item mt-3 mb-3">
+                <h4>درباره تیم آختارتاپ</h4>
+                <ul>
+                    <li>
+                        <a href="#">درباره ما</a>
+                    </li>
+                    <li>
+                         <a href="#">تماس با ما</a>
+                     </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4 mb-4 text-center">
+            <div class="footer-item mt-3">
+                <h4>ثبت نام در خبرنامه آختارتاپ</h4>
+                <p class="text-right">برای اطلاع از جــدیدترین محصـولات و تـخفیف های سـایـت لطفا در خبرنامه ما عضو شده و مارا در شبکه‌های ارتباطی موجود دنبال بکنید</p>
+                
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="شماره تماس">
+                        <span class="input-group-btn">
+                        <button class="btn-n" type="submit"> عضویت <i class="fas fa-caret-square-left"></i></button>
+                        </span>
+                    </div> 
+            </div>
+        </div>
+        <div class="col-12 col-md-2 col-lg-2">
+            <div class="footer-item text-center">
+                <img src="/img/akhtar_top.png" class="img-fluid" alt="">
+                <div class="icon-fallow mt-3 text-center">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+       </div><!--row-->
+   </div> 
+   <div class="footer-end mt-5">
+       <div class="container">
+       <div class="row">
+           <div class="col-12">
+            <div class="text-end text-center">
+                <span>تمام حقوق این وبسایت برای آختارتاپ محفوظ است</span>
+            </div>
+        </div>
+       </div><!--row-->
+    </div>
+   </div>
+</footer>
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/appOne.js"></script>
+
+</body>
+</html>

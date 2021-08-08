@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+     <h2>لیست خرید کاربران</div>
+        <div class="table-responsive">
+             <table class="table table-striped table-bordered">
+                  <thead>
+                       <tr>
+                            <th>نام محصول</th>
+                            <th>مقدار پرداختی</th>
+                            <th>تاریخ پرداخت</th>
+                            <th>عملیات خرید</th>
+                            <th>نام و آدرس خریدار</th>
+                        </tr>
+                    </thead> 
+                    <tbody> 
+                        <% payments.docs.forEach(payment=>{%> 
+                            <tr> 
+                                <td>
+                                    <a href="/admin/shoppings/<%=payment._id %>/title">مشاهده محصول</a>
+                                </td>
+                                <td><%=parseInt(payment.price.toString().replace(',', ''),10) %> تومان</td>
+                                <td><%=date(payment.createdAt).format('jD jMMMM jYYYY') %></td>
+                                <td class="text-center <%=payment.payment ? 'caro-22' : 'caro-11' %>"><%=payment.payment ? 'موفق' : 'ناموفق' %></td>
+                                <td><a href="/admin/shoppings/<%=payment._id %>/address">مشاهده آدرس</a> </td>
+                            </tr>
+                            <%}) %> 
+                        </tbody> 
+                    </table> 
+                    <%- include(viewPath('layouts/pagination') ,{ pagination : payments}) %>
+                </div>

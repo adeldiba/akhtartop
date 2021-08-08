@@ -1,0 +1,189 @@
+<div class="row">
+    <div class="col-sm-12 col-md-10">
+        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h2>ویرایش لوازم یدکی ماشین آلات نیمه سنگین (کارگو)</h2>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-2">
+        <div class="text-left">
+            <a href="/admin/engines" type="submit" class="btn btn-info">بازگشت</a>
+        </div>
+    </div>
+</div><!--row-->
+
+<form class="form-horizontal" action="/admin/engines/<%= engine._id %>?_method=put" method="post" enctype="multipart/form-data">
+
+    <%- include(viewPath('layouts/error-messages')) -%>
+    <div class="form-group row">
+        <div class="col">
+            <label for="title" class="control-label font-weight-bold">عنوان محصول</label>
+            <input type="text" class="form-control" name="title" value="<%= engine.title %>" id="title" placeholder="عنوان را وارد کنید">
+        </div>
+        <div class="col">
+            <label for="titleE" class="control-label font-weight-bold">عنوان محصول به انگلیسی</label>
+            <input type="text" class="form-control" name="titleE" value="<%= engine.titleE %>" id="titleE" placeholder="عنوان را وارد کنید">
+        </div>
+        <div class="col">
+            <label for="model" class="control-label font-weight-bold">مدل محصول</label>
+            <input type="text" class="form-control" name="model" value="<%= engine.model %>" id="model" placeholder="مدل محصول را وارد کنید">
+        </div>
+    </div>
+    
+        <div class="form-group row">
+            <div class="col">
+                <label for="devices" class="control-label font-weight-bold font-weight-bold">دسته بندی نوع دستگاه</label>
+                <select name="devices" id="devices" class="form-control" data-placeholder="دسته بندی مورد نظر ...">
+                    <% devices.forEach(dev => { %>
+                        <option value="<%= dev.id %>" <%= engine.devices.indexOf(dev.id) !== -1 ? 'selected' : ''%> ><%= dev.name %></option>
+                    <% }); %>   
+                </select>
+            </div>
+            <div class="col">
+
+                <label for="brands" class="control-label font-weight-bold">برند محصول</label>
+                <select name="brands" id="brands" class="form-control">
+                    <% brands.forEach(br => { %>
+                        <option value="<%= br.id %>" <%= engine.brands.indexOf(br.id) !== -1 ? 'selected' : ''%> ><%= br.name %></option>
+                    <% }); %> 
+                </select>
+            </div>
+            <div class="col">
+                <label for="type" class="control-label font-weight-bold font-weight-bold">فیلتر گذاری</label>
+                <select name="type" id="type" class="form-control">
+                    <option value="bestsellers" <%= engine.type === 'bestsellers' ? 'selected' : '' %> >پرفروش ترین</option>
+                    <option value="new" <%= engine.type === 'new' ? 'selected' : '' %> >جدید ترین</option>
+                    <option value="popular" <%= engine.type === 'popular' ? 'selected' : '' %>>محبوب ترین</option>
+                    
+                </select>
+            </div>
+    </div>
+
+    <div class="form-group row"> 
+        <div class="col">
+
+            <label for="countries" class="control-label font-weight-bold">برند محصول</label>
+            <select name="countries" id="countries" class="form-control">
+                <% countries.forEach(coun => { %>
+                    <option value="<%= coun.id %>" <%= engine.countries.indexOf(coun.id) !== -1 ? 'selected' : ''%> ><%= coun.name %></option>
+                <% }); %> 
+            </select>
+        </div>
+        <div class="col">
+            <label for="categories" class="control-label font-weight-bold font-weight-bold">دسته بندی</label>
+            <select name="categories" id="categories" class="form-control form-control-chosen" data-placeholder="دسته بندی مورد نظر ..." multiple>
+                <% categories.forEach(cate => { %>
+                    <option value="<%= cate.id %>" <%= engine.categories.indexOf(cate.id) !== -1 ? 'selected' : ''%> ><%= cate.name %></option>
+                <% }); %>   
+            </select>
+        </div>
+        <div class="col">
+            <label for="lang" class="control-label font-weight-bold font-weight-bold">زبان نمایشی</label>
+            <select name="lang" id="lang" class="form-control">
+                <option value="fa" <%= engine.lang == 'fa' ? 'selected' : '' %> >زبان فارسی</option>
+                <option value="tr" <%= engine.lang == 'tr' ? 'selected' : '' %>>زبان ترکی</option>
+            </select>
+        </div>
+    </div>
+    
+    
+    <div class="form-group row">
+      <div class="col">
+          <label for="body" class="control-label font-weight-bold">کاربرد محصول</label>
+          <textarea rows="5" class="form-control" name="body" id="body" placeholder="متن مقاله را وارد کنید">
+            <%= engine.body %>
+          </textarea>
+      </div>
+      <div class="col">
+        <label for="body2" class="control-label font-weight-bold">نوع ماشین</label>
+        <textarea rows="5" class="form-control" name="body2" id="body2" placeholder="متن مقاله را وارد کنید">
+          <%= engine.body2 %>
+        </textarea>
+    </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="body3" class="control-label font-weight-bold">مواد به کار رفته</label>
+            <textarea rows="5" class="form-control" name="body3" id="body3" placeholder="متن مقاله را وارد کنید">
+              <%= engine.body3 %>
+            </textarea>
+        </div>
+        <div class="col">
+          <label for="body4" class="control-label font-weight-bold">عملکرد</label>
+          <textarea rows="5" class="form-control" name="body4" id="body4" placeholder="متن مقاله را وارد کنید">
+            <%= engine.body4 %>
+          </textarea>
+      </div>
+      </div>
+    <div class="form-group row">
+        <div class="col">
+            <div class="button_outer">
+                <div class="btn_upload">
+                    <input type="file" id="img" name="file">
+                    آپلود تصویر
+                </div>
+                <div class="processing_bar"></div>
+                <div class="success_box"></div>
+            </div>
+            <img class="z-depth-2" src="#" id="imgPreview" alt="">   
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="price" class="control-label font-weight-bold">قیمت</label>
+            <input type="text" onkeyup="javascript:this.value=separate(this.value)" class="form-control" name="price" value="<%= engine.price %>"  id="price" placeholder="قیمت ها را وارد کنید" value="">
+        </div>
+        <div class="col">
+            <label for="typetwo" class="control-label font-weight-bold font-weight-bold">فیلتر گذاری</label>
+            <select name="typetwo" id="typetwo" class="form-control">
+                <option value="available" <%= engine.typetwo === 'available' ? 'selected' : '' %> >موجود</option>
+                <option value="notavailable" <%= engine.typetwo === 'notavailable' ? 'selected' : '' %> >موجود نیست</option>
+            </select>
+        </div>
+        <div class="col">
+            <label for="key" class="control-label font-weight-bold">جمله کوتاه کلیدی برای محصول</label>
+            <input type="text" class="form-control" name="key" id="key" placeholder="این فیلد برای سئو موثر است" value="<%= engine.key %>">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <button type="submit" class="btn btn-danger">ارسال</button>
+        </div>
+       
+    </div>
+</form>
+
+<link rel="stylesheet" href="/css/component-chosen.min.css">
+<script src="/ckeditor/ckeditor.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.6/chosen.jquery.min.js"></script>
+<script>
+$('.form-control-chosen').chosen({});    
+</script>
+<script>
+    CKEDITOR.replace('body' , {
+         filebrowserUploadUrl : '/admin/upload-image'
+     });
+     CKEDITOR.replace('body2' , {
+         filebrowserUploadUrl : '/admin/upload-image'
+     });
+     CKEDITOR.replace('body3' , {
+         filebrowserUploadUrl : '/admin/upload-image'
+     });
+     CKEDITOR.replace('body4' , {
+         filebrowserUploadUrl : '/admin/upload-image'
+     });
+</script>
+<script>
+    function separate(Number) 
+{
+        Number+= '';
+        Number= Number.replace(',', '');
+        x = Number.split('.');
+        y = x[0];
+        z= x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(y))
+        y= y.replace(rgx, '$1' + ',' + '$2');
+        return y+ z;
+        }
+
+</script>

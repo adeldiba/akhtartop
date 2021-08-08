@@ -1,0 +1,200 @@
+<section class="profile-area mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3 text-right">
+                <%- include(viewPath('home/panel/aside')); %>
+            </div>
+            <div class="col-12 col-md-9 col-lg-9 text-right">
+                <div class="profile-left pt-3">
+                    <div class="profile-title">
+                        <h4>اطلاعات شخصی</h4>
+                    </div>
+                    <div class="profile-form">
+                        <form  action="/user/panel/<%= panel._id %>?_method=put" method="POST">
+                            <%- include(viewPath('layouts/error-messages')) -%>
+                            <div class="row">
+                                
+                                <div class="col">
+                                    <label for="name">نام</label>
+                                    <input type="text" name="name" id="name" value="<%= panel.name %>" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <label for="name_family">نام خانوادگی</label>
+                                    <input type="text" name="name_family" id="name_family" value="<%= panel.name_family %>" class="form-control">
+                                </div>
+                            </div>
+
+                            <p class="mt-4">تاریخ تولد <span>(مثال 65/03/29)</span></p>
+                            <div class="row">
+                                <div class="col">
+                                    <span class="input-group-text" id="basic-addon1">
+                                        <i class="fas fa-caret-down"></i>
+                                    </span>
+                                    <select id="birth_day" value="<%= panel.birth_day %>" name="birth_day" class="form-control">
+                                        <option value="0"<%= panel.birth_day === '0' ? 'selected' : '' %>>روز</option>
+                                        <option value="1"<%= panel.birth_day === '1' ? 'selected' : '' %>>01</option>
+                                        <option value="2"<%= panel.birth_day === '2' ? 'selected' : '' %>>02</option>
+                                        <option value="3"<%= panel.birth_day === '3' ? 'selected' : '' %>>03</option>
+                                        <option value="4"<%= panel.birth_day === '4' ? 'selected' : '' %>>04</option>
+                                        <option value="5"<%= panel.birth_day === '5' ? 'selected' : '' %>>05</option>
+                                        <option value="6"<%= panel.birth_day === '6' ? 'selected' : '' %>>06</option>
+                                        <option value="7"<%= panel.birth_day === '7' ? 'selected' : '' %>>07</option>
+                                        <option value="8"<%= panel.birth_day === '8' ? 'selected' : '' %>>08</option>
+                                        <option value="9"<%= panel.birth_day === '9' ? 'selected' : '' %>>09</option>
+                                        <option value="10"<%= panel.birth_day === '10' ? 'selected' : '' %>>10</option>
+                                        <option value="11"<%= panel.birth_day === '11' ? 'selected' : '' %>>11</option>
+                                        <option value="12"<%= panel.birth_day === '12' ? 'selected' : '' %>>12</option>
+                                        <option value="13"<%= panel.birth_day === '13' ? 'selected' : '' %>>13</option>
+                                        <option value="14"<%= panel.birth_day === '14' ? 'selected' : '' %>>14</option>
+                                        <option value="15"<%= panel.birth_day === '15' ? 'selected' : '' %>>15</option>
+                                        <option value="16"<%= panel.birth_day === '16' ? 'selected' : '' %>>16</option> 
+                                        <option value="17"<%= panel.birth_day === '17' ? 'selected' : '' %>>17</option>
+                                        <option value="18"<%= panel.birth_day === '18' ? 'selected' : '' %>>18</option>
+                                        <option value="19"<%= panel.birth_day === '19' ? 'selected' : '' %>>19</option>
+                                        <option value="20"<%= panel.birth_day === '20' ? 'selected' : '' %>>20</option>
+                                        <option value="21"<%= panel.birth_day === '21' ? 'selected' : '' %>>21</option>
+                                        <option value="22"<%= panel.birth_day === '22' ? 'selected' : '' %>>22</option>
+                                        <option value="23"<%= panel.birth_day === '23' ? 'selected' : '' %>>23</option>
+                                        <option value="24"<%= panel.birth_day === '24' ? 'selected' : '' %>>24</option>
+                                        <option value="25"<%= panel.birth_day === '25' ? 'selected' : '' %>>25</option>
+                                        <option value="26"<%= panel.birth_day === '26' ? 'selected' : '' %>>26</option>
+                                        <option value="27"<%= panel.birth_day === '27' ? 'selected' : '' %>>27</option>
+                                        <option value="28"<%= panel.birth_day === '28' ? 'selected' : '' %>>28</option>
+                                        <option value="29"<%= panel.birth_day === '29' ? 'selected' : '' %>>29</option>
+                                        <option value="30"<%= panel.birth_day === '30' ? 'selected' : '' %>>30</option>
+                                        <option value="31"<%= panel.birth_day === '31' ? 'selected' : '' %>>31</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="col text-center"> 
+                                        <span class="input-group-text" id="basic-addon1">
+                                            <i class="fas fa-caret-down"></i>
+                                        </span>
+                                    <select name="birth_month" id="birth_month" value="<%= panel.birth_month %>" class="form-control b-select">
+                                        <option value="0" <%= panel.birth_month === '0' ? 'selected' : '' %>>ماه</option>
+                                        <option value="1"<%= panel.birth_month === '1' ? 'selected' : '' %>>فروردین</option>
+                                        <option value="2"<%= panel.birth_month === '2' ? 'selected' : '' %>>اردیبهشت</option>
+                                        <option value="3"<%= panel.birth_month === '3' ? 'selected' : '' %>>خرداد</option>
+                                        <option value="4"<%= panel.birth_month === '4' ? 'selected' : '' %>>تیر</option>
+                                        <option value="5"<%= panel.birth_month === '5' ? 'selected' : '' %>>مرداد</option>
+                                        <option value="6"<%= panel.birth_month === '6' ? 'selected' : '' %>>شهریور</option>
+                                        <option value="7"<%= panel.birth_month === '7' ? 'selected' : '' %>>مهر</option>
+                                        <option value="8"<%= panel.birth_month === '8' ? 'selected' : '' %>>آبان</option>
+                                        <option value="9"<%= panel.birth_month === '9' ? 'selected' : '' %>>آذر</option>
+                                        <option value="10"<%= panel.birth_month === '10' ? 'selected' : '' %>>دی</option>
+                                        <option value="11"<%= panel.birth_month === '11' ? 'selected' : '' %>>بهمن</option>
+                                        <option value="12"<%= panel.birth_month === '12' ? 'selected' : '' %>>اسفند</option>
+                                    </select>
+                                </s> 
+                                </div>
+                                <div class="col text-right">  
+                                    <input type="text" name="birth_year" id="birth_year" value="<%= panel.birth_year %>" class="form-control pl" placeholder="سال">
+                                </div> 
+                            </div><!--row-->  
+                            <p class="mt-4">جنسیت</p>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">زن</label>
+                                      </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">مرد</label>
+                                      </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                        <label class="form-check-label" for="exampleCheck1">سایر جنسیت ها</label>
+                                      </div>
+                                </div>
+                            </div><!--row-->
+                            <div class="row">   
+                                <div class="col">
+                                    <label for="certificate">شماره شناسنامه</label>
+                                    <input type="text" name="certificate" id="certificate" value="<%= panel.certificate %>" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <label for="codeM">کد ملی</label>
+                                    <input type="text" name="codeM" id="codeM" value="<%= panel.codeM %>" class="form-control">
+                                </div>
+                            </div><!--row-->
+                            <div class="profile-title mt-5 mb-3">
+                                <h4>اطلاعات شخصی</h4>
+                            </div>
+                            <div class="row">   
+                                <div class="col">
+                                    <label for="exampleForm2">استان</label>
+                                    <span class="input-group-text m-s" id="basic-addon1">
+                                        <i class="fas fa-caret-down"></i>
+                                    </span>
+                                    <select name="state" id="state" value="<%= panel.state %>" class="province month-input form-control">       
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <label for="exampleForm2">شهر</label>
+                                    <span class="input-group-text m-s" id="basic-addon1">
+                                        <i class="fas fa-caret-down"></i>
+                                    </span>
+                                        <select name="city" id="city" value="<%= panel.city %>" class="city month-input form-control">
+                                            <option value="selectvalues"<%= panel.city === 'آذربایجان‌شرقی' ? 'selected' : '' %>></option>
+                                            <option value="'چهارمحال‌و‌بختیاری'"<%= panel.city === 'چهارمحال‌و‌بختیاری' ? 'selected' : '' %>></option>
+                                            <option value="selectvalues"<%= panel.city === 'خراسان‌جنوبی' ? 'selected' : '' %>></option>
+                                            <option value="selectvalues"<%= panel.city === 'خراسان‌رضوی' ? 'selected' : '' %>></option>
+                                        </select>
+                                    
+                                </div>
+                            </div><!--row-->
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <label for="address">آدرس</label>
+                                    <input type="text" name="address" id="address" value="<%= panel.address %>" class="form-control" placeholder="آدرس خود را به صورت دقیق(محله-خیابان اصلی-کوچه-پلاک-واحد)وارد بنمایید">
+                                </div>
+                            </div><!--row-->
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <label for="postal_code">کد پستی</label>
+                                    <input type="text" name="postal_code" id="postal_code" value="<%= panel.postal_code %>" class="form-control">
+                                </div>
+                                <div class="col">
+                                    <label for="location">موقعیت مکانی</label>
+                                    <span class="input-group-text m-s" id="basic-addon1">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </span>
+                                    <input type="text" name="location" id="location" value="<%= panel.location %>" class="form-control" placeholder="موقعیت مکانی خود را ثبت کنید">
+                                </div>
+                            </div><!--row-->
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <label for="cart">شماره کارت</label>
+                                    <input type="text" name="cart" id="cart" value="<%= panel.cart %>" class="form-control">
+                                </div>
+                            </div><!--row-->
+
+                            <div class="form-group mt-4">
+                                <%- recaptcha %>
+                                </div>
+                            <div class="row mt-5 mb-4">
+                                <div class="col">
+                                    <div class="btn-add">
+                                        <button type="submit"> ثبت مشخصات کاربری</button> 
+                                    </div>
+                                </div>
+                                <div class="col text-left">
+                                    <div class="btn-en mt-3">
+                                        <a href="/user/panel"> انصراف</a> 
+                                    </div>
+                                </div>
+                            </div><!--row-->
+                        </form>
+                    
+                    </div>
+                    
+                </div><!--profile-left-->
+            </div>
+        </div><!--row-->
+    </div>
+</section>

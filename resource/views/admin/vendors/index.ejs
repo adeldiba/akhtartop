@@ -1,0 +1,195 @@
+<div class="main">
+    <div class="container">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">شخص حقیقی</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false">شخص حقوقی</a>
+            </li>
+          </ul>
+          <div class="tab-content mt-5" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <div class="profile-user">
+                    <% realPersons.docs.forEach(realPerson => { %>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="text-default font">نام :</label>
+                            <span><%= realPerson.nameP %></span>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="text-default">نام خانوادگی :</label>
+                            <span><%= realPerson.nameP_family %></span>
+                        </div>
+                        </div><!--row-->
+                        <div class="row">
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">شماره موبایل :</label>
+                                  <span><%= realPerson.phoneP %></span>
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-6">
+                                  <label class="text-default">شماره تلفن ثابت :</label>
+                                  <span><%= realPerson.telphoneP %></span>
+                              </div>
+                      </div><!--row-->
+                      <div class="row">
+                          <div class="col-sm-12 col-md-6 col-lg-6">
+                              <label class="text-default">تاریخ تولد :</label>
+                              <span><span><%=realPerson.birth_yearP %></span>/<span><%= realPerson.birth_monthP %></span>/<span><%= realPerson.birth_dayP%></span></span>
+                          </div>
+                          <div class="col-sm-12 col-md-6 col-lg-6">
+                              <label class="text-default">کد ملی :</label>
+                              <span><%= realPerson.codeMP %></span>
+                          </div>
+                        </div><!--row-->
+                        <div class="row">
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">شماره شناسنامه :</label>
+                                  <span><%= realPerson.certificateP %></span>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">استان :</label>
+                                  <span><%= realPerson.stateP %></span>
+                              </div>
+                          </div><!--row-->
+                          <div class="row">
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">شهر :</label>
+                                  <span><%= realPerson.cityP %></span>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">آدرس دقیق :</label>
+                                  <span><%- realPerson.addressP %></span>
+                              </div>
+                          </div><!--row-->
+                          <div class="row">
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">موقعیت مکانی :</label>
+                                  <span><%= realPerson.locationP %></span>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">نام فروشگاه :</label>
+                                  <span><%- realPerson.store_name %></span>
+                              </div>
+                          </div><!--row-->
+                          <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="text-default">شماره شبا :</label>
+                                <span><%= realPerson.Shaba_number %></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="text-default">قصد فروش چه کالایی را دارید :</label>
+                                <span><%- realPerson.kala %></span>
+                            </div>
+                        </div><!--row-->
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="text-default">تعداد حدودی تنوع کالای آماده فروش :</label>
+                                <span><%= realPerson.variety %></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="text-default">کد پستی :</label>
+                                <span><%- realPerson.postal_codeP %></span>
+                            </div>
+                        </div><!--row-->
+                        <hr class="mt-5 mb-5">
+                    <% }) %> 
+                    </div><!--profile-user-->
+            </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="profile-user">
+                    <% legalPersons.docs.forEach(legalPerson => { %> 
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="text-default font">نام شرکت :</label>
+                            <span><%= legalPerson.company_name  %></span>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label class="text-default">نوع شرکت :</label>
+                            <span><%= legalPerson.company_type %></span>
+                        </div>
+                        </div><!--row-->
+                        <div class="row">
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">شماره موبایل :</label>
+                                  <span><%= legalPerson.phoneP %></span>
+                              </div>
+                              <div class="col-sm-12 col-md-4 col-lg-6">
+                                  <label class="text-default">شماره تلفن ثابت :</label>
+                                  <span><%= legalPerson.telphoneP %></span>
+                              </div>
+                      </div><!--row-->
+                      <div class="row">
+                          <div class="col-sm-12 col-md-6 col-lg-6">
+                              <label class="text-default">شماره ثبت :</label>
+                              <span><span><%=legalPerson.register_number %></span>
+                          </div>
+                          <div class="col-sm-12 col-md-6 col-lg-6">
+                              <label class="text-default">شناسه ملی :</label>
+                              <span><%= legalPerson.national_ID %></span>
+                          </div>
+                        </div><!--row-->
+                        <div class="row">
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">کد اقتصادی :</label>
+                                  <span><%= legalPerson.economic_code  %></span>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">استان :</label>
+                                  <span><%= legalPerson.stateP %></span>
+                              </div>
+                          </div><!--row-->
+                          <div class="row">
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">شهر :</label>
+                                  <span><%= legalPerson.cityP %></span>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">آدرس دقیق :</label>
+                                  <span><%- legalPerson.addressP %></span>
+                              </div>
+                          </div><!--row-->
+                          <div class="row">
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">موقعیت مکانی :</label>
+                                  <span><%= legalPerson.locationP %></span>
+                              </div>
+                              <div class="col-sm-12 col-md-6 col-lg-6">
+                                  <label class="text-default">نام فروشگاه :</label>
+                                  <span><%- legalPerson.store_name %></span>
+                              </div>
+                          </div><!--row-->
+                          <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="text-default">شماره شبا :</label>
+                                <span><%= legalPerson.Shaba_number %></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="text-default">قصد فروش چه کالایی را دارید :</label>
+                                <span><%- legalPerson.kala %></span>
+                            </div>
+                        </div><!--row-->
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="text-default">تعداد حدودی تنوع کالای آماده فروش :</label>
+                                <span><%= legalPerson.variety %></span>
+                            </div>
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="text-default">کد پستی :</label>
+                                <span><%- legalPerson.postal_codeP %></span>
+                            </div>
+                        </div><!--row-->
+                        <div class="row">
+                            <div class="col-sm-12 col-md-6 col-lg-6">
+                                <label class="text-default">صاحبان حق امضاء :</label>
+                                <span><%= legalPerson.holders_sign %></span>
+                            </div>
+                        </div><!--row-->
+                        <% }) %>
+                    </div><!--profile-user-->
+            </div>
+          </div> 
+    </div>
+</div>

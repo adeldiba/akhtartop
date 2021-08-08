@@ -1,0 +1,187 @@
+
+<section class="profile-sellers mt-4 mb-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-6 text-center">
+                <%- include(viewPath('home/panel/exaside')); %> 
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <div class="profile-left mt-4">
+                    <div class="warning text-right">
+                        <p><span class="attention">توجه:</span> پر کردن تمام موارد الزامی می باشد</p>
+                    </div>
+                    <div class="seller_p text-right mt-4">
+                      <h4>چه نوع فروشنده‌ای هستید؟</h4> 
+                      <div class="seller_tab mt-4">
+                        <div class="tabs">
+                                <a class="radio-tem" href="/user/panel/experts">   
+                                شخص حقیقی
+                                <span class="check_false"></span>
+                            </a>
+                            
+                            <a class="radio-tem" href="/user/panel/experts/legal">
+                                شخص حقوقی
+                                <span class="checkround"></span>
+                            </a>
+                              <div class="seller_text mt-4">
+                                <p>
+                                    <span class="seller_bold">شخص حقیقی </span>
+                                 فردی است که دارای خصوصیاتی مختص به خود مانند:نام،نام خانوادگی شماره شناسنامه و کد ملی و غیره می باشد
+                                </p> 
+                                <p>
+                                    <span class="seller_bold">شخص حقوقی </span>
+                                     موسسات و شرکت هایی هستند که پس از طی مراحل قانونی ثبت می شوند و دارای مشخصاتی مانند:نام شخص حقوقی،تاریخ ثبت،شماره ثبت،کد شناسایی،کد اقتصادی موضوع فعالیت و غیره می باشد 
+                                </p>  
+                              </div>
+                            <section class="legal profile-form" id="content2">
+                                <h3>اطلاعات شرکتی</h3> 
+                                <form action="/user/panel/experts/legal" method="POST" class="mt-4">
+                                    <%- include(viewPath('layouts/error-messages')) -%>
+                                   <div class="row mb-4">
+                                       <div class="col">
+                                           <label for="company_name">نام شرکت</label>
+                                           <input type="text" name="company_name" id="company_name" value="<%= old('company_name') %>" class="form-control">
+                                       </div>
+                                   </div>
+                                   <div class="row mb-4">
+                                       <div class="col">
+                                           <label for="company_type">نوع شرکت</label>
+                                           <input type="text" name="company_type" id="company_type" value="<%= old('company_type') %>" class="form-control">
+                                       </div>
+                                       <div class="col">
+                                           <label for="register_number">شماره ثبت</label>
+                                           <input type="text" name="register_number" id="register_number" value="<%= old('register_number') %>" class="form-control">
+                                       </div>
+                                   </div>
+                                   <div class="row mb-4">
+                                       <div class="col">
+                                           <label for="national_ID">شناسه ملی</label>
+                                           <input type="text" name="national_ID" id="national_ID" value="<%= old('national_ID') %>" class="form-control">
+                                       </div>
+                                       <div class="col">
+                                           <label for="economic_code">کد اقتصادی</label>
+                                           <input type="text" name="economic_code" id="economic_code" value="<%= old('economic_code') %>" class="form-control">
+                                       </div>
+                                   </div>
+                                   <div class="row mb-4">
+                                       <div class="col">
+                                           <label for="holders_sign">صاحبان حق امضاء</label>
+                                           <input type="text" name="holders_sign" id="holders_sign" value="<%= old('holders_sign') %>" class="form-control">
+                                       </div>
+                                   </div>
+                                   <h3>اطلاعات تماس</h3>
+
+                                   <div class="row mt-4 mb-4">   
+                                       <div class="col">
+                                           <label for="exampleForm2">استان</label>
+                                           <span class="input-group-text m-s" id="basic-addon1">
+                                               <i class="fas fa-caret-down"></i>
+                                           </span>
+                                           <select name="stateP" id="stateP" value="<%= old('stateP') %>" class="province month-input form-control">       
+                                           </select>
+                                       </div>
+                                       <div class="col">
+                                           <label for="exampleForm2">شهر</label>
+                                           <span class="input-group-text m-s" id="basic-addon1">
+                                               <i class="fas fa-caret-down"></i>
+                                           </span>
+                                               <select name="cityP" id="cityP" value="<%= old('cityP') %>" class="city month-input form-control">
+                                                   <option value="selectvalues"<%= old('cityP') === 'آذربایجان‌شرقی' ? 'selected' : '' %>></option>
+                                                   <option value="'چهارمحال‌و‌بختیاری'"<%= old('cityP') === 'چهارمحال‌و‌بختیاری' ? 'selected' : '' %>></option>
+                                                   <option value="selectvalues"<%= old('cityP') === 'خراسان‌جنوبی' ? 'selected' : '' %>></option>
+                                                   <option value="selectvalues"<%= old('cityP') === 'خراسان‌رضوی' ? 'selected' : '' %>></option>
+                                               </select>
+                                           
+                                       </div>
+                                   </div><!--row-->
+                                   <div class="row mb-4">
+                                       <div class="col">
+                                           <label for="addressP">آدرس</label>
+                                           <input type="text" name="addressP" id="addressP" value="<%= old('addressP') %>" class="form-control" placeholder="آدرس خود را به صورت دقیق(محله-خیابان اصلی-کوچه-پلاک-واحد)وارد بنمایید">
+                                       </div>
+                                   </div><!--row-->
+                                   <div class="row mb-4 text-right">
+                                       <div class="col">
+                                           <label for="postal_codeP">کد پستی</label>
+                                           <input type="text" name="postal_codeP" id="postal_codeP" value="<%= old('postal_codeP') %>" class="form-control">
+                                       </div>
+                                       <div class="col text-right">
+                                           <label for="locationP">موقعیت مکانی</label>
+                                           <span class="input-group-text m-s" id="basic-addon1">
+                                               <i class="fas fa-map-marker-alt"></i>
+                                           </span>
+                                           <input type="text" name="locationP" id="locationP" value="<%= old('locationP') %>" class="form-control" placeholder="موقعیت مکانی خود را ثبت کنید">
+                                       </div>
+                                   </div><!--row-->
+                                   <div class="row mb-4">
+                                       <div class="col">
+                                           <label for="telphoneP">تلفن ثابت</label>
+                                           <input type="text" name="telphoneP" id="telphoneP" value="<%= old('telphoneP') %>" class="form-control">
+                                       </div>
+                                       <div class="col">
+                                           <label for="phoneP">تلفن همراه</label>
+                                           <input type="text" name="phoneP" id="phoneP" value="<%= old('phoneP') %>" class="form-control">
+                                       </div>
+                                   </div><!--row-->
+                                   <h3>اطلاعات تجاری</h3>
+                                   <div class="row mb-4">
+                                       <div class="col">
+                                           <label for="store_name">نام فروشگاه</label>
+                                           <input type="text" name="store_name" id="store_name" value="<%= old('store_name') %>" class="form-control">
+                                       </div>
+                                   </div><!--row-->
+                                   <div class="row mb-4">
+                                       <div class="col">
+                                           <label for="Shaba_number">شماره شبا(به نام شخص یا شرکت ثبت کننده)</label>
+                                           <input type="text" name="Shaba_number" id="Shaba_number" value="<%= old('Shaba_number') %>" class="form-control">
+                                       </div>
+                                   </div><!--row-->
+                                   <div class="row mb-4">
+                                       <div class="col">
+                                           <label for="kala">قصد فروش چه کالایی را دارید</label>
+                                           <span class="input-group-text m-s" id="basic-addon1">
+                                               <i class="fas fa-caret-down"></i>
+                                           </span>
+                                           <input type="text" name="kala" id="kala" value="<%= old('kala') %>" class="form-control">
+                                       </div>
+                                   </div><!--row-->
+                                   <div class="row mb-4">
+                                       <div class="col-8">
+                                           <label for="variety">تعداد حدودی تنوع کالای آماده فروش</label>
+                                           <span class="input-group-text m-s" id="basic-addon1">
+                                               <i class="fas fa-caret-down"></i>
+                                           </span>
+                                           <input type="text" name="variety" id="variety" value="<%= old('variety') %>" class="form-control" placeholder="یکی از دسته بندی 1-13">
+                                       </div>
+                                   </div><!--row-->
+                                   <div class="form-group mt-4">
+                                       <%- recaptcha %>
+                                   </div>
+                                   <div class="row mt-5">
+                                       <div class="col-12 text-center">
+                                           <div class="btn-add mt-2">
+                                          <button type="submit"><i class="fas fa-play"></i> ثبت اطلاعات</button> 
+                                       </div>
+                                   </div>
+                               </div><!--row-->
+                                </form>
+                             </section>
+                              
+                        </div><!--tabs-->
+                      </div> 
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <ul class="nav profile-footer-nav mt-5">
+                                <li><a href="#">فروشگاه آختارتاپ</a> </li>
+                                <li><a href="#">مرکز آموزش فروشندگان</a> </li>
+                                <li><a href="#">سوالات متداول</a> </li>
+                                <li><a href="#">مراحل ثبت نام</a> </li>
+                            </ul>
+                        </div>
+                    </div><!--row-->
+                </div>
+            </div>
+        </div><!--row-->
+    </div>
+</section>

@@ -1,0 +1,35 @@
+
+    <section class="register-area mt-5">
+        <div class="container">
+            <div class="box-area">
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12 text-right">
+                        <h3><i class="fas fa-caret-square-left"></i> عضویت کاربر</h3>
+                    </div>
+                </div><!--row-->
+                <div class="border-area"></div>
+                <form method="POST" action="/auth/register/validate" class="mt-5 text-right">
+                  <%- include(viewPath('layouts/error-messages')) -%>
+                    
+                      <div class="md-form">
+                        <input type="text" id="mobile" name="mobile" class="form-control" value="<%= old('mobile', mobile) %>">
+                        <label for="mobile">تلفن همراه</label>
+                      </div>
+                      <div class="md-form">
+                        <input type="text" id="code" name="code" class="form-control" value="<%= old('code') %>">
+                        <label for="code">کد تایید</label>
+                      </div>
+                      <div class="form-group">
+                        <%- recaptcha %>
+                        </div>
+                      <div class="row mt-5">
+                        <div class="col-12 text-center">
+                            <div class="btn-add mt-2">
+                           <button type="submit"><i class="fas fa-play"></i> تایید</button> 
+                        </div>
+                    </div>
+                </div><!--row-->
+                </form>
+            </div>
+        </div>
+    </section>

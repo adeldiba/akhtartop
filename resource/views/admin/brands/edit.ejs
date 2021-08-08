@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+    <h2>ویرایش برند</h2>
+</div>
+<form class="form-horizontal" action="/admin/brands/<%= brand._id %>?_method=put" method="post">
+
+    <%- include(viewPath('layouts/error-messages')) -%>
+
+    <div class="form-group row">
+        <div class="col">
+            <label for="name" class="control-label font-weight-bold">نام برند</label>
+            <input type="text" class="form-control" name="name" value="<%= brand.name %>" id="name">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="lang" class="control-label font-weight-bold font-weight-bold">زبان نمایشی</label>
+            <select name="lang" id="lang" class="form-control">
+                <option value="fa" <%= brand.lang == 'fa' ? 'selected' : '' %> >زبان فارسی</option>
+                <option value="tr" <%= brand.lang == 'tr' ? 'selected' : '' %>>زبان ترکی</option>
+            </select>
+        </div>
+</div>
+
+<div class="form-group row">
+    <div class="col">
+        <label for="parent" class="control-label font-weight-bold font-weight-bold">دسته مربوطه</label>
+        <select name="parent" id="parent" class="form-control">
+            <option value="none">دسته اصلی</option>
+            <% brands.forEach(brand => { %> 
+                <option value="<%= brand.id %>" <%= String(old('brands' , brand.parent)) == String(brands.id) ? 'selected' : '' %> ><%= brand.name %></option>
+            <% }) %>
+        </select>
+    </div>
+</div>
+    <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-danger">ارسال</button>
+            </div>
+        </div>
+</form>

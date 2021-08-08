@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-sm-12 col-md-10">
+        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h2>ویرایش لگوی وبسایت</h2>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-2">
+        <div class="text-left">
+            <a href="/admin/logo" type="submit" class="btn btn-info">بازگشت</a>
+        </div>
+    </div>
+</div><!--row-->
+
+<form class="form-horizontal" action="/admin/logo/<%= logo._id %>?_method=put" method="post" enctype="multipart/form-data">
+
+    <%- include(viewPath('layouts/error-messages')) -%>
+    
+    <div class="form-group row">
+        <div class="col">
+            <label for="email" class="control-label font-weight-bold">ایمیل وبسایت</label>
+            <input type="text" class="form-control" name="email" value="<%= logo.email %>" id="email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="phone" class="control-label font-weight-bold">شماره تلفن وبسایت</label>
+            <input type="text" class="form-control" name="phone" value="<%= logo.phone %>" id="phone">
+        </div>
+        <div class="col">
+            <label for="address" class="control-label font-weight-bold">آدرس</label>
+            <input type="text" class="form-control" name="address" value="<%= logo.address %>" id="address">
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col">
+            <label for="body" class="control-label font-weight-bold">متن توضیح آختارتاپ</label>
+            <textarea rows="5" class="form-control" name="body" id="body" placeholder="متن مقاله را وارد کنید">
+              <%= logo.body %>
+            </textarea>
+        </div>
+        </div>
+    <div class="form-group row">
+        <div class="col">
+            <div class="button_outer">
+                <div class="btn_upload">
+                    <input type="file" id="img" name="file">
+                    آپلود تصویر
+                </div>
+                <div class="processing_bar"></div>
+                <div class="success_box"></div>
+            </div>
+            <img class="z-depth-2" src="#" id="imgPreview" alt="">   
+        </div>
+    </div>
+    <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-danger">ارسال</button>
+            </div>
+        </div>
+</form>
+
+<script src="/ckeditor/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.6/chosen.jquery.min.js"></script>
+    <script>
+    
+        $('.form-control-chosen').chosen({});    
+    </script>
+    <script>
+        CKEDITOR.replace('body' , {
+             filebrowserUploadUrl : '/admin/upload-image'
+         });
+    </script>

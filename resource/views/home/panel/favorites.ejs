@@ -1,0 +1,49 @@
+<section class="profile-area mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-3 col-lg-3 text-right">
+                <%- include(viewPath('home/panel/aside')); %>
+            </div>
+            <div class="col-12 col-md-9 col-lg-9 text-right">
+                <div class="profile-left pt-3">
+                    <div class="profile-title">
+                        <h4>لیست علاقه مندی ها</h4>
+                    </div>
+                    <% likes.forEach(like => { %>
+                        
+                    <div class="favorites mt-5 mb-5">
+                        <div class="row mb-3">
+                            <div class="col-4 col-md-4 col-lg-4">
+                                <div class="item-favorites">
+                                    <img src="/uploads/<%= like.engine.file %>" class="img-fluid" alt="<%= like.engine.title %>">
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-6 col-lg-6">
+                                <div class="item-favorites">
+                                    <h3><%= like.engine.title %></h3>
+                                    <ul class=" mt-4">
+                                        <li>مدل محصول : <span class="favorites-model"><%= like.engine.model %></span></li>
+                                        <% if(like.engine.typetwo == 'available') { %>
+                                        <li>وضعیت محصول : <span class="available-success"><%= like.engine.typetwoToPersian() %></span></li>
+                                        <% }else{ %>
+                                        <li>وضعیت محصول : <span class="available-danger"><%= like.engine.typetwoToPersian() %></span></li>
+                                        <% } %>
+                                    </ul>
+                                    <div class="favorites-time">
+                                      <span >زمان اضافه شدن به لیست علاقه مندی : <span class="time"><%= date(like.createdAt).format('jD jMMMM jYYYY') %></span></span> <br> 
+                                      <span>قیمت محصول : <span class="price"><%= like.engine.price %> تومان </span></span>
+                                    
+                                    </div>
+                                </div><!--item-favorites-->
+                            </div>
+                            
+                        </div><!--row-->
+                        <hr>
+                    </div>
+                    <% }); %>
+
+                </div><!--profile-left-->
+            </div>
+        </div><!--row-->
+    </div>
+</section>

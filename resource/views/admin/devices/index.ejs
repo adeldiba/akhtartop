@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2>دسته ها</h2>
+        <div class="btn-group">
+            <a href="/admin/devices/create" class="btn btn-sm btn-primary">افزودن دسته جدید</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>عنوان دسته نوع دستگاه</th>
+                <th>نوع</th>
+                <th>تنظیمات</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% devices.docs.forEach(device => { %>
+                    <tr>
+                        <td><a href="#"><%= device.name %></a></td>
+                        <td><%= device.parent ? device.parent.name : 'دسته اصلی' %></td>
+                        <td>
+                            <form action="/admin/devices/<%= device.id %>?_method=DELETE" method="post">
+                                
+                                <div class=" btn-group-sm"> 
+                                    <a href="/admin/devices/<%= device.id %>/edit"  class="btn btn-primary">ویرایش</a>
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+
+        <%- include(viewPath('layouts/pagination') ,{ pagination : devices}) %>
+    </div>
+    
+    

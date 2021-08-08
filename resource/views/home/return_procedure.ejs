@@ -1,0 +1,14 @@
+<section class="return mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 text-right">
+                <% return_p.forEach(return_p => { %>
+                <div class="return_item">
+                    <h2><%= return_p.title %></h2>
+                    <p><%- return_p.body %></p>
+                </div>
+                <% }); %>
+            </div>
+        </div><!--row-->
+    </div>
+</section>

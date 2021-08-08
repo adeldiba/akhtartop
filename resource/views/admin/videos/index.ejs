@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between align-items-center mb-3 border-bottom-1">
+        <h2> آپلود ویدیو</h2>
+        <div class="btn-group">
+            <a href="/admin/videos/create" class="btn btn-sm btn-primary">ایجاد ویدیو</a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th>نام ویدیو</th>
+                <th>تاریخ</th>
+                <th>تنظیمات</th>
+               
+            </tr>
+            </thead>
+            <tbody>
+                <% videos.docs.forEach(video =>{ %>
+                    <tr>
+                        <td><%= video.title %></td>
+                        <td><%= date(video.createdAt).format('jD jMMMM jYYYY') %></td>
+                        <td>
+                            <form action="/admin/videos/<%= video._id %>?_method=DELETE" method="post">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="_token" value="Dso45XzqoXsAkRC8BBMQ63ZsOFS0c2tELkxR4i3Y">
+                                <div class=" btn-group-sm">
+                                    <a href="/admin/videos/<%= video._id %>/edit"  class="btn btn-primary">ویرایش</a>
+                                    <button type="submit" class="btn btn-danger">حذف</button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+    
+    

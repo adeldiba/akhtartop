@@ -1,0 +1,112 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+        <h1 class="h2">داشبورد</h1>
+        <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group ml-2">
+            <button class="btn btn-sm btn-outline-secondary">اشتراک گذاری</button>
+            <button class="btn btn-sm btn-outline-secondary">خروجی گرفتن</button>
+            </div>
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+            <span data-feather="calendar"></span>
+            این هفته
+            </button>
+        </div>
+        </div>
+        <div class="item_admin ">
+            <div class="row">
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="statistic__item">
+                        <h2 class="number"><%= paymentCount %></h2>
+                        <span class="desc">تعداد خرید</span>
+                        <div class="icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="statistic__item">
+                        <h2 class="number"><%= commentCount %></h2>
+                        <span class="desc">تعداد کامنت ها در وبسایت</span>
+                        <div class="icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="statistic__item">
+                        <h2 class="number"><%= likeCount %></h2>
+                        <span class="desc">تعداد لایک ها</span>
+                        <div class="icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-6 col-md-3 col-lg-3">
+                    <div class="statistic__item">
+                        <h2 class="number"><%= userCount %></h2>
+                        <span class="desc">تعداد کاربران وبسایت</span>
+                        <div class="icon">
+                            <span><i class="fas fa-user"></i></span>
+                        </div>
+                    </div> 
+                </div>
+            </div><!--row-->
+        </div>
+        <div class="chart-bar">
+            <canvas id="myChart" style="max-width: 1100px;"></canvas>   
+    </div>
+
+    <form class="form-horizontal" action="/admin/generate-fake-posts" method="post">
+
+        <div class="form-group row">
+            <div class="col">
+                <label for="amount" class="control-label font-weight-bold">ساختن پست ساختگی</label>
+                <input type="text" name="amount" class="form-control" placeholder="تعداد را وارد کنید">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-danger">ساختن</button>
+            </div>
+        </div>
+
+<script>
+     
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+        labels: ["تعداد پست های قطعات یدکی ", "تعداد دسته بندی", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+        label: '# of Votes',
+        data: [ '<%= enginCount %>' , '<%= categoryCount %>', 3, 5, 2, 150],
+        backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+        yAxes: [{
+        ticks: {
+        beginAtZero: true
+        }
+        }]
+        }
+        }
+        });
+    
+</script>

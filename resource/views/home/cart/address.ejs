@@ -1,0 +1,139 @@
+<section class="shopping-box mt-4 mb-4">
+    <div class="container">
+        <div class="box-area">
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 text-right">
+                    <h3><i class="fas fa-caret-square-left"></i>  انتخاب و ثبت آدرس</h3>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6">
+                    <p>هزینه ارسال</p>
+                </div>
+            </div><!--row-->
+            <div class="border-area"></div>
+            <div class="shopping-add mt-3 mb-3">
+                
+                <% panels.forEach(panel => { %>
+            <div class="row">
+                <div class="col-12 col-md-8 col-lg-8 text-right">
+                    <div class="chiller_cb mb-3 text-right">
+                        <input id="check" name="check" value="<%= old('check') %>" type="checkbox" checked>
+                        <label for="check">آدرس : <%= panel.address %></label>
+                        <span></span>
+                    </div>  
+            </div>
+                <div class="col-12 col-md-4 col-lg-4">
+                                  
+                        <% let year = panel.city %> 
+                        <% if(year == 'تبریز'){
+                            year = panel.city.replace('تبریز' , '15000')
+                        }else if (year == 'ارومیه'){
+                            year = panel.city.replace('ارومیه' , '65000')
+                        }else{
+                            year = panel.city.replace(/\W/, '65000')
+                        } %>
+                         
+                    <span class="factor-price"><%= parseInt(year) %> <span> تومان </span></span>
+                </div>
+            </div><!--row-->
+        <% }) %>
+            
+            
+        </div>
+        </div>
+        <% panels.forEach(panel => { %>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="btn-add mt-2">
+                   <a href="/user/panel/<%= panel._id %>/editAddress"><i class="fas fa-play"></i> ویرایش پروفایل </a> 
+                </div>
+            </div>
+        </div><!--row-->
+        <% }) %>
+    </div>
+   
+    <section class="factor-cart mt-5 mb-3">
+        <div class="container">
+            
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-12 col-md-7 col-lg-7 text-right align-items-center">
+                    <div class="factor-item">
+                        <% panels.forEach(panel => { %>
+                        <% let year = panel.city %> 
+                        <% if(year == 'تبریز'){
+                            year = panel.city.replace('تبریز' , '15000')
+                        }else if (year == 'ارومیه'){
+                            year = panel.city.replace('ارومیه' , '65000')
+                        }else{
+                            year = panel.city.replace(/\W/, '65000')
+                        } %>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-2">پیش فاکتور</p>
+                            </div>
+                            <div class="col-6 col-md-6">
+                                
+                                <p class="text-left mt-3"><a href="#">کد تخفیف دارید؟</a></p>
+                            </div>
+                           
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-4">مجموع خرید شما</p>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                <% cart.forEach(function(engine){ %>
+                                    <% let total = 0 %>
+                                    <% var sub = parseInt(engine.qty * engine.price) %>
+                                    <% total += +sub %>
+                                <p class="mt-4 factor-price"><%= parseInt(total) %> <span> تومان </span></p>
+                                <% }); %>
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-4 ft">تخفیف</p>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                
+                                <p class="mt-4 factor-ft"><%= episode.notPrice %> <span> تومان </span></p>
+                                
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <p class="mt-4">هزینه ارسال <span>(با توجه به میزان بار محاصبه میشود)</span></p>
+                            </div>
+                            <div class="col-6 col-md-6 text-left">
+                                
+                                <p class="mt-4 factor-price"><%= parseInt(year) %> <span> تومان </span></p>
+                                
+                            </div>
+                            
+                        </div><!--row-->
+                        <div class="border-area2"></div>
+                        <div class="row d-flex justify-content-center align-items-center text-center">
+                            <div class="col-12 col-md-8">
+                                <div class="factor-send mt-5">
+                                    <p>قابل پرداخت</p>
+                                    <p><%= parseInt(totalPrice + parseInt(year)) %> <span>تومان</span></p> 
+                                    <p class="fun">(قابل شمارو هم نداره)</p>
+                                </div> 
+                                <div class="send-btn mt-5">
+                                    <a href="/shopping"><i class="fas fa-play"></i> مرحله بعد </a>
+                                </div>
+                            </div> 
+                        </div><!--row-->
+                    <% }) %>
+                    </div>
+                </div>
+            </div><!--row-->
+        
+        </div>
+    </section>
+
+</section>

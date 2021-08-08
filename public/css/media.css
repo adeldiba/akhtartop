@@ -1,0 +1,149 @@
+@media screen and (min-width: 320px) and (max-width:778px) {
+    .header-1 .ph span{
+        display: block;
+        font-size: 13px;
+        margin: 0 auto;
+    }
+    .header_2 .navbar .fa-bars{ 
+        color: #fff !important;
+    }
+    .header_2 .navbar ul li a{
+        color: #fff;
+        font-weight: 400;
+    }
+    .header_2 .navbar ul li .cl{
+        color: #dbdbdb;
+    }
+    .header_2 .social-user a{
+        color: #fff !important;
+        font-weight: 400 !important;
+    }
+    
+    .header-1 .slideOne{
+        position: absolute;
+        left: 30px;
+    }
+    .header-1 .cart-box{
+        margin-top: 0 !important;
+    }
+    .header-1 .cart-box a{
+        width: 100%;
+        text-align: center;
+    }
+    .header-1 .search_box .inner-form .input-field input{
+        margin-bottom: 0;
+    }
+    .header-1 .search_box .inner-form .input-field input::placeholder{
+        color: #b3b2b2;
+        font-size: 14px;
+        font-family: 'Vazir' !important;
+    }
+    .main-c .carousel .carousel-item .carousel-caption{
+        width: 0 !important;
+        left: 50% !important;
+    }
+    .main-c .carousel .carousel-item .carousel-caption{
+        top: 45%;
+        right: 0% !important;
+        text-align: center;
+    }
+    .media-title h3{
+        font-size: .8em;
+        padding: 5px 0px 0 ;
+    }
+    .media-title h3 .fa-caret-square-left{
+        margin: 0px 5px 0 10px;
+        font-size: 1.6em;
+    }
+    #slider .carousel-inner .carousel-text h3 a{
+        font-size: .9em;
+        margin-left: 0;
+    }
+    #slider .carousel-inner .carousel-text .caro-3{
+        display: block;
+        margin: 3px 0 4px 0;
+    }
+    #slider .carousel-inner img{
+        height: 347px;
+    }
+    .media-title ul li a{
+        font-size: .6em;
+        line-height: 20px;
+    }
+    .box-area h3{
+        font-size: .9em !important;
+    }
+    .box-area p a{
+        font-size: .9em; 
+    }
+    .box-area p{
+        font-size: .9em !important; 
+    }
+    .box-area img{
+        width: 320px !important;
+        margin: 0 auto;
+        display: block;
+    }
+    .footer .border-c{
+        border-left: none;
+        max-height: none;
+    }
+    .footer .footer-item .input-group{
+        margin-right: 30px;
+        margin-left: 30px;
+        width: 250px;
+    }
+    .input-field input::placeholder{
+        font-size: .7em !important;
+    }
+    .product-table img {
+        min-height: 80px;
+        min-width: 80px;
+    }
+    .item-area p{
+        text-align: center;
+    }
+    .pagination .pg-r{
+        display: none;
+    }
+    .pagination .pg-l{
+        display: none;
+    }
+    .pagination .pagination-newer{
+        margin-right: 0;
+    }
+    .pagination-older{
+        margin-left: 0px;
+    }
+    .pagination-inner{
+        margin: 0 15px;
+    }
+    .profile-left .btn-add{
+        font-size: .7em !important;
+    }
+    .profile-left .pagination-older{
+        font-size: .7em !important;
+    }
+}
+@media (max-width: 768px) {
+    .navbar:not(.top-nav-collapse) {
+        margin-top: 160px;
+        background: #563e91 !important;
+    }
+    .header_2 .navbar ul{
+        width: 300px !important;
+    }
+    .header_2 .navbar ul li:last-child{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width: 980px){
+    .header_2 .mega-area{
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        padding: 15px;
+        top: 33%;
+    }
+}

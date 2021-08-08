@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-sm-12 col-md-10">
+        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+            <h2>ویرایش دسته های ویژه</h2>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-2">
+        <div class="text-left">
+            <a href="/admin/specialCategories" type="submit" class="btn btn-info">بازگشت</a>
+        </div>
+    </div>
+</div><!--row-->
+
+    <form class="form-horizontal" action="/admin/specialCategories/<%= specialCategory._id %>?_method=put" method="post">
+    
+        <%- include(viewPath('layouts/error-messages')) -%>
+        <input type="hidden" name="_csrf" value="<%= req.csrfToken() %>">
+        <div class="form-group row">
+            <div class="col">
+                <label for="name" class="control-label font-weight-bold">عنوان دسته</label>
+                <input type="text" class="form-control" name="name" id="name" placeholder="عنوان را وارد کنید" value="<%= specialCategory.name %>">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <label for="lang" class="control-label font-weight-bold font-weight-bold">زبان نمایشی</label>
+                <select name="lang" id="lang" class="form-control">
+                    <option value="fa" <%= specialCategory.lang == 'fa' ? 'selected' : '' %> >زبان فارسی</option>
+                    <option value="tr" <%= specialCategory.lang == 'tr' ? 'selected' : '' %>>زبان ترکی</option>
+                </select>
+            </div>
+    </div>
+        <div class="form-group row">
+            <div class="col">
+                <label for="parent" class="control-label font-weight-bold font-weight-bold">دسته مربوطه</label>
+                <select name="parent" id="parent" class="form-control">
+                    <option value="none">دسته اصلی</option>
+                    <% specialCategories.forEach(cate => { %> 
+                        <option value="<%= cate.id %>" <%= String(old('specialCategories' , specialCategories.parent)) == String(cate.id) ? 'selected' : '' %> ><%= cate.name %></option>
+                    <% }) %>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col">
+                <button type="submit" class="btn btn-info">ویرایش</button>
+            </div>
+        </div>
+    </form>
+    
